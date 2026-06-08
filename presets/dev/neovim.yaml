@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["escape",      # return to normal mode
+         "cmd-s",       # save file (with GUI wrapper like Neovide)
+         "cmd-w"]       # close window / split
+    knobs:
+      - ccw: "wheel(-3)"   # scroll up in buffer
+        press: "escape"    # return to normal mode
+        cw: "wheel(3)"     # scroll down in buffer

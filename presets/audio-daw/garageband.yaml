@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["r",              # start / stop recording
+         "space",          # play / stop
+         "cmd-z"]          # undo last action
+    knobs:
+      - ccw: "left"        # move playhead backward
+        press: "space"     # play / pause
+        cw: "right"        # move playhead forward

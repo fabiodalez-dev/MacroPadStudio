@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.DS_Store
+.build-workflow.js
+.keys-vocabulary.txt
+CLAUDE.md
+.claude/

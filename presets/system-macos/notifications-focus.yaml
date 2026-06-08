@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-shift-n",  "ctrl-cmd-q",   "escape"]       # clear all notifications (Notification Centre) / lock screen / dismiss current notification
+    knobs:
+      - ccw:   "volumedown"   # decrease volume
+        press: "mute"         # mute/unmute
+        cw:    "volumeup"     # increase volume

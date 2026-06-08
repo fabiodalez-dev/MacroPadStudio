@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["r",              # arm/toggle record
+         "space",          # play / stop
+         "cmd-shift-r"]    # toggle record on/off in cycle mode (capture recording)
+    knobs:
+      - ccw: "left"        # move playhead backward (one bar)
+        press: "space"     # play / pause
+        cw: "right"        # move playhead forward (one bar)

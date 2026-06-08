@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-shift-m",  # toggle microphone mute
+         "cmd-shift-d",  # toggle deafen (headphones)
+         "cmd-shift-s"]  # start / stop screen share
+    knobs:
+      - ccw: "volumedown"  # decrease voice channel volume
+        press: "mute"      # mute / unmute system audio
+        cw: "volumeup"     # increase voice channel volume

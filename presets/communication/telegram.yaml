@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-n", "cmd-f", "escape"]  # new message / search / close / back
+    knobs:
+      - ccw: "cmd-up"       # navigate to previous chat
+        press: "enter"      # open selected chat / send message
+        cw: "cmd-down"      # navigate to next chat

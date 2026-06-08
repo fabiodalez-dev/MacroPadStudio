@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-z",        # undo keyframe change
+         "u",            # show all keyframes for selected layer
+         "cmd-shift-z"]  # redo
+    knobs:
+      - ccw: "j"         # jump to previous keyframe
+        press: "space"   # play / pause
+        cw: "k"          # jump to next keyframe

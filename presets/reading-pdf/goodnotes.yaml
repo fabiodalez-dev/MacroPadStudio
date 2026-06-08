@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-z",      "cmd-f",       "cmd-shift-a"] # Undo / Search / Select all
+    knobs:
+      - ccw: "left"    # previous page
+        press: "escape" # deselect / exit tool
+        cw: "right"    # next page

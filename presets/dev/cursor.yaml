@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-k",            # open AI edit prompt
+         "cmd-l",            # open AI chat panel
+         "cmd-shift-p"]      # command palette
+    knobs:
+      - ccw: "cmd-shift-leftbracket"   # switch to previous editor tab
+        press: "cmd-l"                 # toggle AI chat panel
+        cw: "cmd-shift-rightbracket"   # switch to next editor tab

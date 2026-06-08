@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["enter",           # start encoding queue
+         "cmd-alt-k",       # stop / pause encoding
+         "cmd-z"]           # undo last queue change
+    knobs:
+      - ccw: "volumedown"   # decrease system volume
+        press: "mute"       # toggle system mute
+        cw: "volumeup"      # increase system volume

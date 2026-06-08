@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-opt-8",    "cmd-opt-minus",  "cmd-opt-equal"]  # toggle Zoom on/off / zoom out / zoom in
+    knobs:
+      - ccw:   "cmd-opt-minus"   # zoom out
+        press: "cmd-opt-8"       # toggle accessibility zoom
+        cw:    "cmd-opt-equal"   # zoom in

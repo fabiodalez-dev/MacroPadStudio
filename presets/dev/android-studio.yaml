@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["ctrl-r",          # run app
+         "ctrl-d",          # debug app
+         "cmd-shift-a"]     # find action
+    knobs:
+      - ccw: "cmd-shift-leftbracket"   # switch to previous editor tab
+        press: "cmd-e"                 # recent files popup
+        cw: "cmd-shift-rightbracket"   # switch to next editor tab

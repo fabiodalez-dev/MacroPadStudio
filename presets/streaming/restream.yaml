@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-shift-s",  # start / stop multistream broadcast
+         "cmd-shift-m",  # toggle microphone mute
+         "cmd-r"]        # reload / refresh Restream Studio
+    knobs:
+      - ccw: "volumedown"  # decrease stream monitor volume
+        press: "mute"      # mute / unmute monitor audio
+        cw: "volumeup"     # increase stream monitor volume

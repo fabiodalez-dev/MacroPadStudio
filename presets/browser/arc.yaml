@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-t",        # open new tab
+         "cmd-w",        # close current tab
+         "cmd-shift-c"]  # open Arc command bar
+    knobs:
+      - ccw: "cmd-shift-leftbracket"   # switch to previous tab
+        press: "cmd-l"                 # focus address bar
+        cw: "cmd-shift-rightbracket"   # switch to next tab

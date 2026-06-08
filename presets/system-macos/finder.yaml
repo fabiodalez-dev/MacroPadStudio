@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-n",        "cmd-delete",   "cmd-shift-n"]  # new Finder window / move to Trash / new folder
+    knobs:
+      - ccw:   "up"        # move selection up in file list
+        press: "enter"     # rename selected file
+        cw:    "down"      # move selection down in file list

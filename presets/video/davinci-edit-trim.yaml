@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-z",        # undo last trim
+         "t",            # activate trim mode (ripple trim)
+         "cmd-shift-z"]  # redo
+    knobs:
+      - ccw: "comma"     # trim / nudge clip start one frame earlier
+        press: "space"   # play / pause around edit point
+        cw: "dot"        # trim / nudge clip start one frame later

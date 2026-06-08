@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-z",          # undo last edit
+         "cmd-i",          # split clip at selection (Split command)
+         "cmd-shift-z"]    # redo
+    knobs:
+      - ccw: "left"        # move cursor / selection backward
+        press: "space"     # play / stop
+        cw: "right"        # move cursor / selection forward

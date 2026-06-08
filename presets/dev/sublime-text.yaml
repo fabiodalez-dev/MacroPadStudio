@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-shift-p",   # command palette
+         "cmd-p",         # quick open file
+         "cmd-d"]         # select next occurrence of word
+    knobs:
+      - ccw: "cmd-shift-leftbracket"   # switch to previous tab
+        press: "ctrl-grave"            # toggle integrated console
+        cw: "cmd-shift-rightbracket"   # switch to next tab

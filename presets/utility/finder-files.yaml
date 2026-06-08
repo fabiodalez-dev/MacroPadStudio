@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["enter",        "cmd-delete",  "cmd-shift-n"]   # Rename selected / Move to Trash / New Folder
+    knobs:
+      - ccw:   "up"           # move selection up
+        press: "enter"        # rename (open filename edit)
+        cw:    "down"         # move selection down

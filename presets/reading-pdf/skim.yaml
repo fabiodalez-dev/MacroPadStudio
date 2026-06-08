@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-f",      "cmd-k",       "cmd-shift-h"] # Find / Add note / Highlight selection
+    knobs:
+      - ccw: "left"    # previous page
+        press: "space" # toggle presentation mode
+        cw: "right"    # next page

@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-z",      "cmd-shift-e", "p"]           # Undo / Export / Flag as picked
+    knobs:
+      - ccw: "left"    # previous photo
+        press: "space" # flag photo as picked
+        cw: "right"    # next photo

@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-shift-r",    # enter Reader View (Safari) / reader mode (Firefox)
+         "cmd-d",          # bookmark / add to reading list
+         "cmd-p"]          # print / save as PDF
+    knobs:
+      - ccw: "left"        # scroll / navigate back (with momentum feel)
+        press: "space"     # scroll down one page
+        cw: "right"        # scroll / navigate forward

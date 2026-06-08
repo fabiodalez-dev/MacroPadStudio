@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-shift-w",  "cmd-shift-d",  "cmd-z"]       # Hide/Show frame edges / Place image / Undo
+    knobs:
+      - ccw: "cmd-minus"  # zoom out
+        press: "cmd-0"    # fit page in window
+        cw: "cmd-equal"   # zoom in

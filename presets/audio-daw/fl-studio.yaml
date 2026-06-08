@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-z",          # undo last action
+         "space",          # play / pause
+         "cmd-shift-z"]    # redo (FL Studio: Ctrl+Shift+Z)
+    knobs:
+      - ccw: "left"        # move playhead / scrub backward
+        press: "space"     # play / pause
+        cw: "right"        # move playhead / scrub forward

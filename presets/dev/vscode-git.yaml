@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["ctrl-shift-g",    # open source control panel
+         "cmd-shift-p",     # command palette (for git commit / push)
+         "alt-f3"]          # find next diff / change in editor
+    knobs:
+      - ccw: "cmd-shift-leftbracket"   # switch to previous editor tab
+        press: "ctrl-shift-g"          # toggle source control sidebar
+        cw: "cmd-shift-rightbracket"   # switch to next editor tab

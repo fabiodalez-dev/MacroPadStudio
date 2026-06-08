@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-g",        "cmd-shift-o",  "cmd-z"]       # Group / Outline Stroke / Undo
+    knobs:
+      - ccw: "cmd-minus"  # zoom out
+        press: "cmd-0"    # fit artboard in window
+        cw: "cmd-equal"   # zoom in

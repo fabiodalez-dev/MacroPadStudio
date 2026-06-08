@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-shift-p",   # open command palette
+         "cmd-p",         # quick open file
+         "cmd-shift-f"]   # search in project
+    knobs:
+      - ccw: "cmd-shift-leftbracket"   # switch to previous editor tab
+        press: "cmd-b"                 # toggle project panel
+        cw: "cmd-shift-rightbracket"   # switch to next editor tab

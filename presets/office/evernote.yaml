@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-n", "cmd-z", "cmd-f"]   # New note / Undo / Find in note
+    knobs:
+      - ccw: "up"        # scroll up
+        press: "cmd-s"   # save note
+        cw: "down"       # scroll down

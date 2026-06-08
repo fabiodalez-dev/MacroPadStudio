@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-s", "cmd-shift-f5", "escape"]   # Save / Start slideshow from current / End slideshow
+    knobs:
+      - ccw: "left"      # previous slide
+        press: "space"   # advance / pause slideshow
+        cw: "right"      # next slide

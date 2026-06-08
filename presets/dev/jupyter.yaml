@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["shift-enter",   # run cell and advance to next
+         "b",             # insert cell below (command mode)
+         "cmd-shift-p"]   # open command palette
+    knobs:
+      - ccw: "up"         # select previous cell
+        press: "shift-enter" # run current cell
+        cw: "down"        # select next cell

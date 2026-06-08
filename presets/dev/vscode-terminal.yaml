@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["ctrl-grave",       # toggle integrated terminal
+         "cmd-shift-5",      # split terminal
+         "cmd-shift-m"]      # toggle problems panel
+    knobs:
+      - ccw: "wheel(-3)"    # scroll up in terminal
+        press: "ctrl-grave" # toggle terminal focus
+        cw: "wheel(3)"      # scroll down in terminal

@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-shift-n",  "cmd-j",        "cmd-z"]       # New layer / Duplicate layer / Undo
+    knobs:
+      - ccw: "leftbracket"  # decrease brush size
+        press: "f"          # cycle screen modes (hide panels)
+        cw: "rightbracket"  # increase brush size

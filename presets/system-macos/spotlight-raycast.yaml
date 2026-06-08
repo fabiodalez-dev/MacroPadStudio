@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-space",    "cmd-shift-space",  "escape"]   # open Spotlight / open Raycast / dismiss
+    knobs:
+      - ccw:   "up"        # navigate results upward
+        press: "enter"     # open / confirm selection
+        cw:    "down"      # navigate results downward

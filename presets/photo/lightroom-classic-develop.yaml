@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-z",      "cmd-shift-e", "backslash"]   # Undo / Export / Before-After toggle
+    knobs:
+      - ccw: "left"    # previous photo in filmstrip
+        press: "space" # flag photo as picked
+        cw: "right"    # next photo in filmstrip

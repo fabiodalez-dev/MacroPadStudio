@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["a", "u", "cmd-z"]   # select all UVs | UV unwrap | Undo
+    knobs:
+      - ccw: "numpaddot"      # zoom to fit selection (numpad dot)
+        press: "numpad5"       # toggle ortho/perspective view
+        cw: "numpadplus"       # zoom in UV editor

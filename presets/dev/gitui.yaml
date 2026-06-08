@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["enter",     # confirm / stage hunk
+         "escape",    # go back / cancel
+         "space"]     # stage / unstage selected file
+    knobs:
+      - ccw: "up"     # navigate to previous item in list
+        press: "enter" # confirm selection
+        cw: "down"    # navigate to next item in list

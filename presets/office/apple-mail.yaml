@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-n", "cmd-r", "delete"]   # New message / Reply / Delete message
+    knobs:
+      - ccw: "up"          # scroll message up
+        press: "cmd-enter" # send email
+        cw: "down"         # scroll message down

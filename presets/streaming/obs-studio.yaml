@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-f",        # toggle fullscreen / studio mode
+         "cmd-shift-s",  # start / stop streaming
+         "cmd-r"]        # start / stop recording
+    knobs:
+      - ccw: "left"      # switch to previous scene
+        press: "space"   # transition to program (cut)
+        cw: "right"      # switch to next scene

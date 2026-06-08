@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["s", "cmd-z", "cmd-shift-z"]   # search commands (S) | Undo | Redo
+    knobs:
+      - ccw: "numpad4"    # orbit view left
+        press: "numpad5"  # fit/home view
+        cw: "numpad6"     # orbit view right

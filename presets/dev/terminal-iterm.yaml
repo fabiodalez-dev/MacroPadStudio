@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-t",         # open new terminal tab
+         "cmd-w",         # close current tab
+         "cmd-d"]         # split pane vertically
+    knobs:
+      - ccw: "wheel(-3)"   # scroll up in terminal output
+        press: "cmd-k"     # clear terminal screen
+        cw: "wheel(3)"     # scroll down in terminal output

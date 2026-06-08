@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-d",        "cmd-g",        "cmd-z"]       # Duplicate element / Group / Undo
+    knobs:
+      - ccw: "cmd-minus"  # zoom out
+        press: "cmd-shift-h" # fit design to window (reset zoom)
+        cw: "cmd-equal"   # zoom in

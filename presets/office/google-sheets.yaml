@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-z", "cmd-shift-z", "cmd-f"]   # Undo / Redo / Find (autosave = no manual Save)
+    knobs:
+      - ccw: "up"          # scroll up
+        press: "enter"     # confirm cell entry
+        cw: "down"         # scroll down

@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-z",        "cmd-shift-z",  "cmd-a"]        # undo / redo / select all
+    knobs:
+      - ccw:   "up"        # move cursor / selection up one line
+        press: "cmd-a"     # select all text
+        cw:    "down"      # move cursor / selection down one line

@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-z",           # undo last edit
+         "escape",          # exit note input / deselect
+         "cmd-shift-z"]     # redo
+    knobs:
+      - ccw: "left"         # move selection left (previous note/rest)
+        press: "space"      # play / pause playback
+        cw: "right"         # move selection right (next note/rest)

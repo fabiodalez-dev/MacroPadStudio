@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["tab", "cmd-z", "cmd-shift-z"]   # toggle mesh editing | Undo | Redo
+    knobs:
+      - ccw: "minus"      # zoom out viewport
+        press: "a"        # fit all items to view
+        cw: "equal"       # zoom in viewport

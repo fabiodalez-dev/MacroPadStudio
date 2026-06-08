@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-a",        "cmd-shift-z", "cmd-f"]         # Select All / Redo / Find
+    knobs:
+      - ccw:   "up"           # scroll / move up one line
+        press: "enter"        # confirm / accept
+        cw:    "down"         # scroll / move down one line

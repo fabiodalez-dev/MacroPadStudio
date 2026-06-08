@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["f9",     # toggle breakpoint
+         "f5",     # start / continue debugging
+         "shift-f5"]   # stop debugging
+    knobs:
+      - ccw: "f10"    # step over (previous step)
+        press: "f5"   # continue execution
+        cw: "f11"     # step into (next step)

@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["space",          # play / stop
+         "f9",             # record into session (Ableton: Record button)
+         "cmd-z"]          # undo last action
+    knobs:
+      - ccw: "volumedown"  # decrease master volume
+        press: "mute"      # toggle mute
+        cw: "volumeup"     # increase master volume

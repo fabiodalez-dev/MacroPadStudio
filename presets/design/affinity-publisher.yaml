@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-d",        "cmd-shift-p",  "cmd-z"]       # Duplicate / Place image / Undo
+    knobs:
+      - ccw: "cmd-minus"  # zoom out
+        press: "cmd-0"    # fit spread in window
+        cw: "cmd-equal"   # zoom in

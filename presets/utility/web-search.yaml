@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-t",        "cmd-l",       "cmd-r"]         # New tab / Focus address bar / Reload
+    knobs:
+      - ccw:   "up"           # scroll page up
+        press: "space"        # scroll one page down / pause media
+        cw:    "down"         # scroll page down

@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-z",      "cmd-e",      "cmd-shift-e"] # Undo / Export to disk / Export with options
+    knobs:
+      - ccw: "left"    # previous image in image browser
+        press: "space" # toggle before/after comparison
+        cw: "right"    # next image in image browser

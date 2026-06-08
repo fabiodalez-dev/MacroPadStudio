@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["escape",       # interrupt / cancel current agent action
+         "enter",        # confirm / submit prompt
+         "cmd-k"]        # clear terminal screen
+    knobs:
+      - ccw: "up"        # navigate to previous command in history
+        press: "enter"   # submit / confirm
+        cw: "down"       # navigate to next command in history

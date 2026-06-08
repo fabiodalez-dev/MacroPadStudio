@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-shift-s",  # start / stop streaming
+         "cmd-shift-r",  # start / stop recording
+         "cmd-shift-a"]  # toggle alert box mute
+    knobs:
+      - ccw: "left"      # switch to previous scene
+        press: "space"   # cut / instant transition to scene
+        cw: "right"      # switch to next scene

@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["g",          "e",          "cmd-z"]        # Grid view / Loupe view / Undo
+    knobs:
+      - ccw: "left"    # previous photo in filmstrip
+        press: "space" # flag photo as picked (spacebar in Library)
+        cw: "right"    # next photo in filmstrip

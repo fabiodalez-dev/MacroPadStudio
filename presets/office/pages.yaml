@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-s", "cmd-z", "cmd-shift-z"]   # Save / Undo / Redo
+    knobs:
+      - ccw: "up"        # scroll up
+        press: "cmd-f"   # open Find
+        cw: "down"       # scroll down

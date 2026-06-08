@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["b",          "e",          "cmd-z"]        # Brush tool / Eraser tool / Undo
+    knobs:
+      - ccw: "leftbracket"    # decrease brush size
+        press: "x"            # swap foreground/background colors
+        cw: "rightbracket"    # increase brush size

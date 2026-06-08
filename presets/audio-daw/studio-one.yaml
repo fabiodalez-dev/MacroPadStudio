@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-z",          # undo last edit
+         "p",              # split event at playback position (Studio One default)
+         "cmd-shift-z"]    # redo
+    knobs:
+      - ccw: "left"        # nudge playhead / selection backward
+        press: "space"     # play / stop
+        cw: "right"        # nudge playhead / selection forward

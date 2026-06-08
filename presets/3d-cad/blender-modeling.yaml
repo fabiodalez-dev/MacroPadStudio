@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["tab", "cmd-z", "cmd-shift-z"]   # toggle Edit/Object mode | Undo | Redo
+    knobs:
+      - ccw: "numpad4"    # orbit view left (numpad 4)
+        press: "numpad0"  # toggle camera view
+        cw: "numpad6"     # orbit view right (numpad 6)

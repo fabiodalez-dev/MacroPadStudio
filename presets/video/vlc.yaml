@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["f",            # toggle fullscreen
+         "space",        # play / pause
+         "e"]            # step one frame forward (frame-by-frame)
+    knobs:
+      - ccw: "left"      # seek 10 seconds backward
+        press: "mute"    # toggle audio mute
+        cw: "right"      # seek 10 seconds forward

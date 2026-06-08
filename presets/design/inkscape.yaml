@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-g",        "cmd-shift-g",  "cmd-z"]       # Group / Ungroup / Undo
+    knobs:
+      - ccw: "cmd-minus"  # zoom out
+        press: "3"        # fit drawing in window (key '3' in Inkscape)
+        cw: "cmd-equal"   # zoom in

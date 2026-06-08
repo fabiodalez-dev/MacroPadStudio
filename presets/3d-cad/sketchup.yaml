@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["space", "cmd-z", "cmd-shift-z"]   # select tool | Undo | Redo
+    knobs:
+      - ccw: "minus"      # zoom out
+        press: "cmd-shift-e"  # zoom to extents
+        cw: "equal"       # zoom in

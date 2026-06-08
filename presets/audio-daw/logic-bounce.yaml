@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-b",          # bounce project / selection to disk
+         "space",          # play / stop for final review
+         "cmd-a"]          # select all regions before bounce
+    knobs:
+      - ccw: "left"        # move playhead backward for review
+        press: "space"     # play / pause
+        cw: "right"        # move playhead forward for review

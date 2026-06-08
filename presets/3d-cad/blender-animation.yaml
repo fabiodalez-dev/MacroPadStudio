@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["i", "space", "cmd-z"]   # insert keyframe | play/pause | Undo
+    knobs:
+      - ccw: "left"     # scrub timeline backward (previous frame)
+        press: "space"  # play/pause animation
+        cw: "right"     # scrub timeline forward (next frame)

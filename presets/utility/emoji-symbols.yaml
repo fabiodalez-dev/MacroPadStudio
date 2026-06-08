@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["ctrl-cmd-space", "cmd-c",     "cmd-v"]         # Emoji & Symbols picker / Copy / Paste
+    knobs:
+      - ccw:   "up"           # scroll picker up
+        press: "enter"        # insert selected emoji
+        cw:    "down"         # scroll picker down

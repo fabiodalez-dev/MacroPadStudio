@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-n", "cmd-r", "cmd-shift-d"]  # compose new message / reply / send
+    knobs:
+      - ccw: "up"           # move to previous message
+        press: "enter"      # open selected message
+        cw: "down"          # move to next message

@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-z",      "cmd-s",      "cmd-shift-e"] # Undo / Save / Queue for export
+    knobs:
+      - ccw: "left"    # previous image in file browser
+        press: "space" # toggle before/after view
+        cw: "right"    # next image in file browser

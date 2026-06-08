@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-z",      "cmd-e",      "f"]            # Undo / Export / Toggle fullscreen view
+    knobs:
+      - ccw: "left"    # previous image in lighttable
+        press: "space" # rate/reject toggle (spacebar in darkroom)
+        cw: "right"    # next image in lighttable

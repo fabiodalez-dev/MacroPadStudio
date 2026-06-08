@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-f",      "cmd-equal",   "cmd-minus"]   # Find in PDF / Zoom in / Zoom out
+    knobs:
+      - ccw: "left"    # previous page
+        press: "space" # toggle presentation / scroll
+        cw: "right"    # next page

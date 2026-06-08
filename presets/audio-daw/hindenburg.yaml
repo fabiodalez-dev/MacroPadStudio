@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-z",          # undo last edit
+         "t",              # split clip at playhead (Hindenburg default)
+         "cmd-shift-z"]    # redo
+    knobs:
+      - ccw: "left"        # move playhead backward (frame step)
+        press: "space"     # play / pause
+        cw: "right"        # move playhead forward (frame step)

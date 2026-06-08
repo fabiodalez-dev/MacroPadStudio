@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["ctrl-opt-left", "ctrl-opt-right", "ctrl-opt-f"] # Snap left half / Snap right half / Fullscreen (Rectangle)
+    knobs:
+      - ccw:   "cmd-minus"    # zoom out / decrease window size
+        press: "ctrl-opt-c"   # center window (Rectangle)
+        cw:    "cmd-equal"    # zoom in / increase window size

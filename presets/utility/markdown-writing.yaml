@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-b",        "cmd-i",       "cmd-k"]         # Bold / Italic / Insert link
+    knobs:
+      - ccw:   "up"           # scroll document up
+        press: "cmd-s"        # save document
+        cw:    "down"         # scroll document down

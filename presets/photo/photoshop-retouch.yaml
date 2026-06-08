@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["j",          "cmd-z",      "cmd-shift-z"] # Healing/Spot Heal tool / Undo / Redo
+    knobs:
+      - ccw: "leftbracket"    # decrease brush size
+        press: "j"            # cycle Healing Brush tools
+        cw: "rightbracket"    # increase brush size

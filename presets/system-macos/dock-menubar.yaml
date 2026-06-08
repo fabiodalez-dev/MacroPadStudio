@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-opt-d",    "ctrl-f2",      "ctrl-f3"]      # toggle Dock visibility / focus menu bar / focus Dock
+    knobs:
+      - ccw:   "volumedown"   # decrease system volume
+        press: "mute"         # mute/unmute
+        cw:    "volumeup"     # increase system volume

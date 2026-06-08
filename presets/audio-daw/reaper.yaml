@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-z",          # undo last edit
+         "s",              # split items at edit cursor (REAPER default)
+         "cmd-shift-z"]    # redo
+    knobs:
+      - ccw: "left"        # move edit cursor left by grid unit
+        press: "space"     # play / pause
+        cw: "right"        # move edit cursor right by grid unit

@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-z", "cmd-shift-z", "cmd-f"]   # Undo / Redo / Search in page (autosave)
+    knobs:
+      - ccw: "up"          # scroll up
+        press: "cmd-shift-p" # command palette / quick search
+        cw: "down"         # scroll down

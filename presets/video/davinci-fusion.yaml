@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-z",        # undo node/compositing change
+         "cmd-e",        # add effect / merge node
+         "cmd-shift-z"]  # redo
+    knobs:
+      - ccw: "left"      # step one frame backward
+        press: "space"   # play / pause render preview
+        cw: "right"      # step one frame forward

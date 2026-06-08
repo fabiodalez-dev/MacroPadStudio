@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-f",      "cmd-shift-h", "cmd-equal"]   # Find / Hand tool / Zoom in
+    knobs:
+      - ccw: "left"    # previous page
+        press: "space" # pan / scroll in hand tool
+        cw: "right"    # next page

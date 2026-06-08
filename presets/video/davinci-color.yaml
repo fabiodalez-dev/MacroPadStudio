@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-z",        # undo last grade change
+         "cmd-d",        # flag clip / mark for review
+         "cmd-shift-z"]  # redo
+    knobs:
+      - ccw: "left"      # go to previous clip in timeline
+        press: "space"   # play / pause clip
+        cw: "right"      # go to next clip in timeline

@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-s",        # save draft / changes
+         "cmd-shift-u",  # go to upload new video
+         "cmd-r"]        # reload / refresh Studio page
+    knobs:
+      - ccw: "volumedown"  # decrease preview volume
+        press: "mute"      # mute / unmute preview audio
+        cw: "volumeup"     # increase preview volume

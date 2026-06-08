@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-k",        # focus chat input box
+         "cmd-r",        # reload / refresh stream page
+         "cmd-shift-f"]  # toggle fullscreen theatre mode
+    knobs:
+      - ccw: "volumedown"  # decrease stream volume
+        press: "mute"      # mute / unmute stream audio
+        cw: "volumeup"     # increase stream volume

@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["ctrl-z", "s", "cmd-z"]   # undo (ZBrush) | save | undo (alt)
+    knobs:
+      - ccw: "leftbracket"    # decrease draw size
+        press: "f"            # frame/fit mesh to view
+        cw: "rightbracket"    # increase draw size

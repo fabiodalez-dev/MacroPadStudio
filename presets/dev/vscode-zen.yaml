@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-shift-e",    # open explorer sidebar
+         "cmd-j",          # toggle bottom panel
+         "cmd-b"]          # toggle primary sidebar
+    knobs:
+      - ccw: "cmd-minus"   # zoom out editor font
+        press: "cmd-j"     # toggle bottom panel
+        cw: "cmd-equal"    # zoom in editor font

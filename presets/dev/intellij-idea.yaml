@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["shift-shift",       # search everywhere (double-shift)
+         "cmd-shift-a",       # find action
+         "shift-f6"]          # rename symbol
+    knobs:
+      - ccw: "cmd-shift-leftbracket"   # switch to previous editor tab
+        press: "cmd-e"                 # recent files popup
+        cw: "cmd-shift-rightbracket"   # switch to next editor tab

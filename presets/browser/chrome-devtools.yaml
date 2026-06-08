@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-alt-i",     # open / close DevTools
+         "cmd-alt-j",     # open DevTools console
+         "cmd-shift-m"]   # toggle device emulation / responsive mode
+    knobs:
+      - ccw: "cmd-leftbracket"    # navigate back in browser history
+        press: "cmd-r"            # reload page
+        cw: "cmd-rightbracket"    # navigate forward in browser history

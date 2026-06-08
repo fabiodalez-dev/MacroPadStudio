@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["space",          # start / stop Live Loops playback
+         "r",              # record into Live Loops cell
+         "cmd-z"]          # undo last action
+    knobs:
+      - ccw: "left"        # move scene selection up / backward
+        press: "enter"     # trigger selected scene
+        cw: "right"        # move scene selection down / forward

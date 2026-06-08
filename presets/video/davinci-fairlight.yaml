@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-z",           # undo last edit
+         "space",           # play / pause
+         "cmd-shift-z"]     # redo
+    knobs:
+      - ccw: "volumedown"   # decrease master volume
+        press: "mute"       # toggle master mute
+        cw: "volumeup"      # increase master volume

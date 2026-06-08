@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-z",      "cmd-shift-z", "cmd-s"]       # Undo / Redo / Save
+    knobs:
+      - ccw: "leftbracket"    # decrease brush size
+        press: "b"            # select Paint tool (brush)
+        cw: "rightbracket"    # increase brush size

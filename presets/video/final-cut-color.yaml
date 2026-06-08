@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-z",              # undo color grade change
+         "cmd-6",              # open Color inspector
+         "cmd-shift-z"]        # redo
+    knobs:
+      - ccw: "cmd-left"        # go to previous clip
+        press: "space"         # play / pause
+        cw: "cmd-right"        # go to next clip

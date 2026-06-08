@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["s", "z", "cmd-z"]   # set keyframe (S) | undo (Z) | undo (cmd-Z)
+    knobs:
+      - ccw: "left"       # scrub timeline backward
+        press: "space"    # play/pause playback
+        cw: "right"       # scrub timeline forward

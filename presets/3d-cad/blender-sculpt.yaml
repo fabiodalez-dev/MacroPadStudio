@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["f", "cmd-z", "cmd-shift-z"]   # resize brush (F key) | Undo | Redo
+    knobs:
+      - ccw: "leftbracket"    # decrease brush size
+        press: "f"            # enter brush resize mode
+        cw: "rightbracket"    # increase brush size

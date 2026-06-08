@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["macbrightnessdown",  "macbrightnessup",  "f1"]   # display brightness down / display brightness up / F1 (brightness shortcut on some Macs)
+    knobs:
+      - ccw:   "macbrightnessdown"  # decrease display brightness
+        press: "mute"               # mute/unmute audio (handy companion toggle)
+        cw:    "macbrightnessup"    # increase display brightness

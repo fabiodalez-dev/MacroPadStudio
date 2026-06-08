@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["escape", "cmd-z", "cmd-y"]   # cancel command | Undo | Redo
+    knobs:
+      - ccw: "minus"      # zoom out
+        press: "cmd-shift-e"  # zoom extents
+        cw: "equal"       # zoom in

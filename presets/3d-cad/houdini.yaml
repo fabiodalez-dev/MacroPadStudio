@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["space", "cmd-z", "cmd-shift-z"]   # view mode (space+drag) | Undo | Redo
+    knobs:
+      - ccw: "left"       # scrub timeline backward
+        press: "space"    # play/pause simulation
+        cw: "right"       # scrub timeline forward

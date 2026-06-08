@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-shift-v",   # open markdown preview
+         "cmd-shift-rightbracket",   # switch to next tab / preview side by side
+         "cmd-b"]         # toggle sidebar (or bold with extension)
+    knobs:
+      - ccw: "wheel(-3)"   # scroll up in preview/editor
+        press: "cmd-shift-v"   # toggle markdown preview
+        cw: "wheel(3)"     # scroll down in preview/editor

@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-shift-n",  "cmd-shift-e",  "cmd-z"]       # New layer / Export / Undo
+    knobs:
+      - ccw: "leftbracket"  # decrease brush size
+        press: "escape"     # deselect / dismiss tool options
+        cw: "rightbracket"  # increase brush size

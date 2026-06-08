@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-c",        "cmd-v",       "cmd-z"]         # Copy / Paste / Undo
+    knobs:
+      - ccw:   "volumedown"   # decrease system volume
+        press: "mute"         # toggle mute
+        cw:    "volumeup"     # increase system volume

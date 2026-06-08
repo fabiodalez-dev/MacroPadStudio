@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["ctrl-left",    "ctrl-up",     "ctrl-right"]   # tile window left half / full screen (Mission Control) / tile window right half
+    knobs:
+      - ccw:   "ctrl-alt-left"    # move window to left screen / shrink via Stage Manager
+        press: "ctrl-up"          # toggle full screen
+        cw:    "ctrl-alt-right"   # move window to right screen / grow via Stage Manager

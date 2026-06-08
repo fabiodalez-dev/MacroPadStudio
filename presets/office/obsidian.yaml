@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-n", "cmd-z", "cmd-p"]   # New note / Undo / Command palette
+    knobs:
+      - ccw: "up"          # scroll up
+        press: "cmd-e"     # toggle Edit / Preview mode
+        cw: "down"         # scroll down

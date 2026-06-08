@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-e",        # add job to render queue
+         "cmd-shift-r",  # start rendering queue
+         "cmd-z"]        # undo last queue change
+    knobs:
+      - ccw: "left"      # step one frame backward in preview
+        press: "space"   # play / pause preview
+        cw: "right"      # step one frame forward in preview

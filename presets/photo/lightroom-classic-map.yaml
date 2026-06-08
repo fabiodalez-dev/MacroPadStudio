@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-k",      "cmd-z",      "cmd-shift-e"] # Add keyword shortcut / Undo / Export
+    knobs:
+      - ccw: "left"    # previous photo in filmstrip
+        press: "space" # flag photo as picked
+        cw: "right"    # next photo in filmstrip

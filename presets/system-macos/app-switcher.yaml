@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-tab",      "cmd-shift-tab",  "cmd-q"]      # next app in switcher / previous app in switcher / quit active app
+    knobs:
+      - ccw:   "cmd-shift-tab"  # cycle apps backward (hold cmd conceptually; each turn = one step)
+        press: "cmd-tab"        # open App Switcher overlay
+        cw:    "cmd-tab"        # cycle apps forward

@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["1",            # switch to camera 1 angle
+         "2",            # switch to camera 2 angle
+         "3"]            # switch to camera 3 angle
+    knobs:
+      - ccw: "left"      # step one frame backward
+        press: "space"   # play / pause multicam sequence
+        cw: "right"      # step one frame forward

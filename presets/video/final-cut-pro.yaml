@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-z",        # undo last edit
+         "cmd-b",        # blade / split clip at playhead
+         "cmd-shift-z"]  # redo
+    knobs:
+      - ccw: "left"      # step one frame backward
+        press: "space"   # play / pause
+        cw: "right"      # step one frame forward

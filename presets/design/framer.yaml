@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-d",        "cmd-shift-enter", "cmd-z"]    # Duplicate / Preview in browser / Undo
+    knobs:
+      - ccw: "cmd-minus"  # zoom out
+        press: "cmd-0"    # fit canvas to window
+        cw: "cmd-equal"   # zoom in

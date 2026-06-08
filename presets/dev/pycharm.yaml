@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["shift-f10",       # run current configuration
+         "shift-f9",        # debug current configuration
+         "shift-f6"]        # rename symbol
+    knobs:
+      - ccw: "cmd-shift-leftbracket"   # switch to previous editor tab
+        press: "cmd-e"                 # recent files popup
+        cw: "cmd-shift-rightbracket"   # switch to next editor tab

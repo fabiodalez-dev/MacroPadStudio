@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-f",      "cmd-t",       "cmd-equal"]   # Search / Table of contents / Larger text
+    knobs:
+      - ccw: "left"    # previous page
+        press: "f"     # toggle full-screen reading
+        cw: "right"    # next page

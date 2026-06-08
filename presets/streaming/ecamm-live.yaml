@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-shift-s",  # start / stop live stream
+         "cmd-shift-m",  # toggle microphone mute
+         "cmd-shift-c"]  # show / hide camera overlay
+    knobs:
+      - ccw: "left"      # switch to previous scene
+        press: "space"   # cut transition to selected scene
+        cw: "right"      # switch to next scene

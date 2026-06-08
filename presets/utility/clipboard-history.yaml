@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-c",        "cmd-shift-v", "cmd-z"]         # Copy / Paste without formatting / Undo
+    knobs:
+      - ccw:   "up"           # scroll clipboard history up
+        press: "enter"        # paste selected clipboard entry
+        cw:    "down"         # scroll clipboard history down

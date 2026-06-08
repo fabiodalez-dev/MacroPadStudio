@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-shift-r", "0",         "cmd-delete"]   # Reveal in Finder / Clear rating / Delete/Reject
+    knobs:
+      - ccw: "left"    # previous asset in content panel
+        press: "space" # full-screen preview (spacebar)
+        cw: "right"    # next asset in content panel

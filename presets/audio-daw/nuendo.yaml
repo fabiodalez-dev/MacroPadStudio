@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-z",          # undo last edit
+         "x",              # split clip at cursor (Nuendo default, same as Cubase)
+         "cmd-shift-z"]    # redo
+    knobs:
+      - ccw: "left"        # move cursor left (nudge backward)
+        press: "space"     # play / stop
+        cw: "right"        # move cursor right (nudge forward)

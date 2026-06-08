@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["f5",         "cmd-shift-t", "cmd-z"]       # Capture / Toggle tether bar / Undo
+    knobs:
+      - ccw: "left"    # previous captured image
+        press: "space" # toggle full-screen viewer
+        cw: "right"    # next captured image

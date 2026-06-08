@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["m",              # mute selected track
+         "s",              # solo selected track
+         "cmd-z"]          # undo last mix change
+    knobs:
+      - ccw: "volumedown"  # decrease master volume
+        press: "mute"      # toggle mute
+        cw: "volumeup"     # increase master volume

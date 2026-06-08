@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["f8", "cmd-z", "cmd-shift-z"]   # toggle points/edges/polys | Undo | Redo
+    knobs:
+      - ccw: "left"       # scrub timeline backward
+        press: "space"    # play/pause animation
+        cw: "right"       # scrub timeline forward

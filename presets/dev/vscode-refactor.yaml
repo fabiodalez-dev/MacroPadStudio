@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["f2",           # rename symbol
+         "ctrl-shift-r", # refactor menu
+         "f12"]          # go to definition
+    knobs:
+      - ccw: "cmd-shift-leftbracket"   # switch to previous editor tab
+        press: "shift-f12"             # find all references
+        cw: "cmd-shift-rightbracket"   # switch to next editor tab

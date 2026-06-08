@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-c",        "cmd-v",        "cmd-shift-v"]  # copy / paste / paste and match style
+    knobs:
+      - ccw:   "up"        # scroll up through clipboard history (Raycast/Pasta)
+        press: "enter"     # confirm / paste selected clipboard entry
+        cw:    "down"      # scroll down through clipboard history

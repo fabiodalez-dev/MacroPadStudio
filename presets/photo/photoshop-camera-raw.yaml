@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-z",      "p",          "enter"]        # Undo / Preview toggle (P key) / Open image
+    knobs:
+      - ccw: "left"    # previous image in filmstrip
+        press: "space" # toggle hand/zoom tool
+        cw: "right"    # next image in filmstrip

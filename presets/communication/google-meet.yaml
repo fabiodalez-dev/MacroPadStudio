@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-d", "cmd-e", "cmd-shift-h"]  # toggle mute / toggle camera / leave call
+    knobs:
+      - ccw: "volumedown"   # decrease system volume
+        press: "mute"       # toggle speaker mute
+        cw: "volumeup"      # increase system volume
