@@ -1,8 +1,10 @@
-# ch57x-macropad-manager
+# MacroPad Studio
 
 **macOS configuration manager for the CH57x 3-key + 1-knob USB macro pad**
 
-<img src="assets/macropad.jpg" alt="CH57x macro pad" width="400">
+<img src="assets/macropad.jpg" alt="CH57x 3-key macro pad with rotary knob" width="400">
+
+> **The hardware:** this is the popular, inexpensive **3-key mechanical macro keypad with a rotary knob** widely sold on **AliExpress, Amazon, eBay, Temu and Banggood** (often listed as *"3 Key Custom Keyboard RGB Macro Pad"*, *"Mini Programmable Knob Keyboard"*, *"OSU! Macro Pad"* or *"DIY Hot-swap Keypad"*). Internally it uses a **CH57x** chip and enumerates as USB `0x1189:0x8890`. The bundled software is **Windows-only** — this project lets you configure it natively on **macOS**.
 
 ---
 
