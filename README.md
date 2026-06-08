@@ -18,6 +18,12 @@ This project gives macOS users full control over compact USB macro pads based on
 
 ---
 
+## Screenshot
+
+<img src="assets/screenshot.png" alt="MacroPad Studio GUI — launcher with category sidebar, preset list and live device status" width="720">
+
+---
+
 ## Supported devices
 
 All variants share VID `0x1189`. The tool auto-detects the connected device and selects the matching profile.

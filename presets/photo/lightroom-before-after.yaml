@@ -4,7 +4,7 @@ columns: 3
 knobs: 1
 layers:
   - buttons:
-      - ["y", "cmd-alt-shift-left", "cmd-z"]   # Toggle Before/After / Copy After settings to Before / Undo
+      - ["y", "cmd-alt-shift-right", "cmd-z"]   # Toggle Before/After / Copy After settings to Before / Undo
     knobs:
       - ccw: "left"                              # Previous photo
         press: "cmd-shift-r"                     # Reset develop settings

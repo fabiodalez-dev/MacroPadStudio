@@ -9,6 +9,6 @@ layers:
          "cmd-6",              # open Color inspector
          "cmd-shift-z"]        # redo
     knobs:
-      - ccw: "cmd-left"        # go to previous clip
+      - ccw: "up"              # go to previous clip / edit point
         press: "space"         # play / pause
-        cw: "cmd-right"        # go to next clip
+        cw: "down"             # go to next clip / edit point

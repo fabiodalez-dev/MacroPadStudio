@@ -4,8 +4,8 @@ columns: 3
 knobs: 1
 layers:
   - buttons:
-      - ["alt-s", "shift-s", "ctrl-d"]   # Add serial node / add parallel node / toggle node bypass
+      - ["alt-s", "alt-p", "cmd-d"]   # Add serial node / add parallel node / disable selected node
     knobs:
-      - ccw: "shift-left"  # Select previous node in node graph
-        press: "alt-s"     # Add serial node
-        cw: "shift-right"  # Select next node in node graph
+      - ccw: "shift-alt-semicolon"  # Select previous node in node graph
+        press: "alt-s"               # Add serial node
+        cw: "shift-alt-quote"        # Select next node in node graph

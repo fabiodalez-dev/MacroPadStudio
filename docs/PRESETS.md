@@ -1,8 +1,8 @@
 # Preset Reference
 
-All bindings below are generated from the YAML files in `presets/`. **Total presets: 394.**
+All bindings are generated from the YAML files in `presets/`. **Total presets: 394.**
 
-Knob column shows `ccw / press / cw`. Multi-key and multi-layer presets show their geometry.
+Knob column shows `ccw / press / cw`. Multi-key / multi-layer presets show their geometry.
 
 
 ## 3D & CAD (`3d-cad`) — 20 presets
@@ -68,14 +68,14 @@ Knob column shows `ccw / press / cw`. Multi-key and multi-layer presets show the
 | `logic-comp-takes` | cmd-k | cmd-f | cmd-z | left / space / right |
 | `logic-edit` | cmd-z | cmd-t | cmd-shift-z | left / space / right |
 | `logic-live-loops` | space | r | cmd-z | left / enter / right |
-| `logic-markers` | grave | cmd-grave | quote | cmd-left / grave / cmd-right |
+| `logic-markers` | opt-quote | opt-delete | opt-dot | opt-comma / opt-quote / opt-dot |
 | `logic-midi-edit` | cmd-a | delete | cmd-z | wheeldown / space / wheelup |
 | `logic-mix` | m | s | cmd-z | volumedown / mute / volumeup |
-| `logic-piano-roll` | cmd-a | cmd-shift-f | cmd-z | leftbracket / space / rightbracket |
+| `logic-piano-roll` | cmd-a | q | cmd-z | leftbracket / space / rightbracket |
 | `logic-quantize` | cmd-a | q | cmd-z | leftbracket / q / rightbracket |
-| `logic-record` | r | space | cmd-shift-r | left / space / right |
+| `logic-record` | r | space | shift-r | left / space / right |
 | `logic-score` | cmd-p | cmd-a | cmd-z | wheeldown / space / wheelup |
-| `logic-transport` | space | enter | cmd-u | left / enter / right |
+| `logic-transport` | space | enter | c | left / enter / right |
 | `nuendo` | cmd-z | x | cmd-shift-z | left / space / right |
 | `pro-tools-edit` | cmd-e | cmd-z | cmd-h | left / f5 / right |
 | `pro-tools-mix` | cmd-m | cmd-shift-m | cmd-alt-m | wheeldown / cmd-m / wheelup |
@@ -302,26 +302,26 @@ Knob column shows `ccw / press / cw`. Multi-key and multi-layer presets show the
 | `darktable` | cmd-z | cmd-e | f | left / space / right |
 | `dxo-photolab` | cmd-z | cmd-e | cmd-shift-e | left / space / right |
 | `gimp` | cmd-z | cmd-shift-z | cmd-s | leftbracket / p / rightbracket |
-| `lightroom-before-after` | y | cmd-alt-shift-left | cmd-z | left / cmd-shift-r / right |
+| `lightroom-before-after` | y | cmd-alt-shift-right | cmd-z | left / cmd-shift-r / right |
 | `lightroom-cc` | cmd-z | cmd-shift-e | p | left / space / right |
 | `lightroom-classic-develop` | cmd-z | cmd-shift-e | backslash | left / space / right |
 | `lightroom-classic-library` | g | e | cmd-z | left / space / right |
 | `lightroom-classic-map` | cmd-k | cmd-z | cmd-shift-e | left / space / right |
 | `lightroom-collections` | cmd-n | shift-cmd-n | b | left / cmd-b / right |
-| `lightroom-compare` | c | up | down | left / g / right |
+| `lightroom-compare` | c | up | n | left / g / right |
 | `lightroom-copy-paste` | cmd-shift-c | cmd-shift-v | cmd-alt-v | left / cmd-z / right |
 | `lightroom-develop-basic` | cmd-z | cmd-shift-r | v | left / y / right |
 | `lightroom-develop-crop` | r | x | enter | leftbracket / cmd-shift-r / rightbracket |
-| `lightroom-develop-masking` | shift-cmd-h | o | cmd-z | leftbracket / m / rightbracket |
+| `lightroom-develop-masking` | h | o | cmd-z | leftbracket / m / rightbracket |
 | `lightroom-develop-tone` | cmd-z | cmd-u | cmd-shift-u | wheeldown / tab / wheelup |
 | `lightroom-export` | cmd-shift-e | cmd-alt-shift-e | cmd-z | left / cmd-a / right |
 | `lightroom-library-cull` | x | p | u | left / space / right |
 | `lightroom-library-rating` | 6 | 7 | 8 | 2 / 0 / 4 |
 | `lightroom-local-adjust` | k | cmd-z | h | leftbracket / o / rightbracket |
-| `lightroom-map` | cmd-shift-m | delete | cmd-z | minus / escape / equal |
+| `lightroom-map` | cmd-k | g | cmd-z | minus / escape / equal |
 | `lightroom-presets` | cmd-z | cmd-shift-r | y | left / space / right |
 | `luminar-neo` | cmd-z | cmd-shift-e | cmd-d | left / space / right |
-| `photoshop-brush-tuning` | b | opt-rightbracket | opt-leftbracket | leftbracket / f5 / rightbracket |
+| `photoshop-brush-tuning` | b | shift-rightbracket | shift-leftbracket | leftbracket / f5 / rightbracket |
 | `photoshop-camera-raw` | cmd-z | p | enter | left / space / right |
 | `photoshop-channels` | cmd-1 | cmd-2 | cmd-3 | cmd-minus / cmd-grave / cmd-equal |
 | `photoshop-color-grade` | cmd-l | cmd-m | cmd-b | cmd-shift-l / cmd-shift-u / cmd-u |
@@ -329,14 +329,14 @@ Knob column shows `ccw / press / cw`. Multi-key and multi-layer presets show the
 | `photoshop-general` | cmd-z | cmd-shift-z | cmd-s | leftbracket / b / rightbracket |
 | `photoshop-healing` | j | s | cmd-z | leftbracket / j / rightbracket |
 | `photoshop-layers` | cmd-shift-n | cmd-g | cmd-e | leftbracket / b / rightbracket |
-| `photoshop-liquify` | cmd-shift-x | cmd-z | enter | leftbracket / b / rightbracket |
+| `photoshop-liquify` | cmd-shift-x | cmd-z | enter | leftbracket / w / rightbracket |
 | `photoshop-masking` | cmd-i | cmd-opt-g | cmd-shift-n | leftbracket / q / rightbracket |
 | `photoshop-painting` | b | e | cmd-z | leftbracket / x / rightbracket |
 | `photoshop-pen-paths` | p | a | cmd-enter | cmd-minus / cmd-0 / cmd-equal |
 | `photoshop-retouch` | j | cmd-z | cmd-shift-z | leftbracket / j / rightbracket |
 | `photoshop-selection` | cmd-a | cmd-d | cmd-shift-i | cmd-opt-left / cmd-opt-r / cmd-opt-right |
 | `photoshop-shapes` | u | a | cmd-enter | cmd-minus / cmd-0 / cmd-equal |
-| `photoshop-smart-objects` | cmd-shift-d | cmd-z | cmd-s | cmd-minus / cmd-0 / cmd-equal |
+| `photoshop-smart-objects` | cmd-t | cmd-z | cmd-s | cmd-minus / cmd-0 / cmd-equal |
 | `photoshop-transform` | cmd-t | escape | enter | cmd-minus / cmd-0 / cmd-equal |
 | `photoshop-type` | t | cmd-shift-l | cmd-enter | cmd-shift-comma / cmd-shift-c / cmd-shift-dot |
 | `pixelmator-pro` | cmd-z | cmd-shift-z | cmd-s | leftbracket / b / rightbracket |
@@ -419,42 +419,42 @@ Knob column shows `ccw / press / cw`. Multi-key and multi-layer presets show the
 
 | Preset | Key 1 | Key 2 | Key 3 | Knob (ccw / press / cw) |
 |---|---|---|---|---|
-| `after-effects-comp` | cmd-shift-h | cmd-shift-x | cmd-alt-n | pagedown / space / pageup |
-| `after-effects-expressions` | cmd-shift-alt-e | alt-click | cmd-e | cmd-z / enter / cmd-shift-z |
+| `after-effects-comp` | cmd-shift-x | cmd-k | cmd-n | pagedown / space / pageup |
+| `after-effects-expressions` | e,e | u | alt-u | cmd-z / enter / cmd-shift-z |
 | `after-effects-keyframe` | cmd-z | u | cmd-shift-z | j / space / k |
-| `after-effects-layers` | cmd-shift-alt-e | cmd-d | cmd-shift-c | minus / cmd-shift-alt-e / equal |
-| `after-effects-masks` | cmd-shift-n | cmd-shift-i | f | minus / cmd-shift-h / equal |
-| `after-effects-motion` | cmd-z | cmd-shift-f | cmd-shift-z | left / space / right |
-| `after-effects-preview` | space | numpad0 | cmd-shift-g | left / space / right |
+| `after-effects-layers` | cmd-shift-c | cmd-d | cmd-y | minus / cmd-shift-c / equal |
+| `after-effects-masks` | cmd-shift-n | m,m | f | minus / cmd-shift-h / equal |
+| `after-effects-motion` | cmd-z | shift-slash | cmd-shift-z | left / space / right |
+| `after-effects-preview` | space | numpad0 | cmd-quote | left / space / right |
 | `after-effects-render` | cmd-m | cmd-alt-m | cmd-shift-slash | pagedown / numpad0 / pageup |
 | `after-effects-transform` | r | s | p | minus / cmd-alt-f / equal |
 | `after-effects` | cmd-z | cmd-shift-d | cmd-shift-z | left / space / right |
 | `capcut-edit` | cmd-z | cmd-b | cmd-shift-z | left / space / right |
 | `capcut-effects` | cmd-z | cmd-shift-z | delete | left / space / right |
 | `capcut` | cmd-z | cmd-b | cmd-shift-z | left / space / right |
-| `davinci-color-nodes` | alt-s | shift-s | ctrl-d | shift-left / alt-s / shift-right |
-| `davinci-color-primary` | shift-h | ctrl-d | alt-z | wheeldown / shift-h / wheelup |
-| `davinci-color` | cmd-z | cmd-d | cmd-shift-z | left / space / right |
-| `davinci-cut` | cmd-z | q | cmd-shift-z | left / space / right |
+| `davinci-color-nodes` | alt-s | alt-p | cmd-d | shift-alt-semicolon / alt-s / shift-alt-quote |
+| `davinci-color-primary` | cmd-home | shift-d | cmd-z | wheeldown / shift-home / wheelup |
+| `davinci-color` | cmd-z | g | cmd-shift-z | left / space / right |
+| `davinci-cut` | cmd-z | f9 | cmd-shift-z | left / space / right |
 | `davinci-deliver` | cmd-e | cmd-shift-r | cmd-z | left / space / right |
 | `davinci-edit-trim` | cmd-z | t | cmd-shift-z | comma / space / dot |
 | `davinci-edit` | cmd-z | cmd-b | cmd-shift-z | left / space / right |
-| `davinci-fairlight-mix` | m | s | cmd-shift-a | volumedown / mute / volumeup |
+| `davinci-fairlight-mix` | alt-m | alt-s | cmd-shift-a | volumedown / mute / volumeup |
 | `davinci-fairlight-record` | f9 | space | ctrl-z | left / space / right |
 | `davinci-fairlight` | cmd-z | space | cmd-shift-z | volumedown / mute / volumeup |
 | `davinci-fusion` | cmd-z | cmd-e | cmd-shift-z | left / space / right |
-| `davinci-keyframe` | shift-home | shift-end | cmd-z | left / k / right |
-| `davinci-media-pool` | cmd-i | f2 | cmd-shift-n | wheeldown / space / wheelup |
+| `davinci-keyframe` | leftbracket | rightbracket | cmd-z | left / k / right |
+| `davinci-media-pool` | cmd-i | enter | cmd-shift-n | wheeldown / space / wheelup |
 | `davinci-power-windows` | shift-w | alt-w | ctrl-shift-w | wheeldown / shift-w / wheelup |
-| `davinci-scopes` | shift-z | ctrl-shift-h | ctrl-shift-w | wheeldown / shift-z / wheelup |
+| `davinci-scopes` | z | ctrl-shift-h | cmd-shift-w | wheeldown / z / wheelup |
 | `davinci-timeline-nav` | home | end | cmd-home | left / k / right |
-| `davinci-trim` | u | shift-leftbracket | shift-rightbracket | left / u / right |
+| `davinci-trim` | t | shift-leftbracket | shift-rightbracket | left / t / right |
 | `filmora` | cmd-z | cmd-b | cmd-shift-z | left / space / right |
-| `final-cut-audio` | cmd-4 | cmd-9 | ctrl-s | volumedown / mute / volumeup |
-| `final-cut-color` | cmd-z | cmd-6 | cmd-shift-z | cmd-left / space / cmd-right |
-| `final-cut-edit` | cmd-z | cmd-b | cmd-shift-z | left / space / right |
+| `final-cut-audio` | cmd-4 | cmd-9 | ctrl-shift-s | volumedown / mute / volumeup |
+| `final-cut-color` | cmd-z | cmd-6 | cmd-shift-z | up / space / down |
+| `final-cut-edit` | cmd-z | b | cmd-shift-z | left / space / right |
 | `final-cut-export` | cmd-e | cmd-shift-e | cmd-z | left / space / right |
-| `final-cut-pro` | cmd-z | cmd-b | cmd-shift-z | left / space / right |
+| `final-cut-pro` | cmd-z | b | cmd-shift-z | left / space / right |
 | `final-cut-titles` | ctrl-t | cmd-4 | cmd-z | left / space / right |
 | `final-cut-trim` | t | cmd-alt-right | cmd-alt-left | comma / space / dot |
 | `handbrake` | cmd-o | cmd-shift-e | cmd-shift-z | volumedown / mute / volumeup |

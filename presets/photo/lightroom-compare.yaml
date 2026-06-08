@@ -4,7 +4,7 @@ columns: 3
 knobs: 1
 layers:
   - buttons:
-      - ["c", "up", "down"]   # Enter Compare view / Promote candidate to select / Swap select and candidate
+      - ["c", "up", "n"]   # Enter Compare view / Make candidate the select (promote) / Survey view
     knobs:
       - ccw: "left"            # Step to previous pair
         press: "g"             # Return to Grid view

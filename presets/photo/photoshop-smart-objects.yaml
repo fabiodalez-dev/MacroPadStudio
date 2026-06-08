@@ -5,7 +5,7 @@ knobs: 1
 
 layers:
   - buttons:
-      - ["cmd-shift-d",  "cmd-z",        "cmd-s"]        # Edit Smart Object contents / Undo / Save
+      - ["cmd-t",        "cmd-z",        "cmd-s"]        # Free Transform Smart Object / Undo / Save
     knobs:
       - ccw: "cmd-minus"   # zoom out
         press: "cmd-0"      # fit on screen

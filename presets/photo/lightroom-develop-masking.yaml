@@ -4,8 +4,8 @@ columns: 3
 knobs: 1
 layers:
   - buttons:
-      - ["shift-cmd-h", "o", "cmd-z"]   # Show/hide masks overlay / Show/hide selected mask overlay / Undo
+      - ["h", "o", "cmd-z"]   # Hide/show mask pins / Show/hide mask overlay / Undo
     knobs:
       - ccw: "leftbracket"               # Decrease brush size
-        press: "m"                        # Add new mask (Masking shortcut)
+        press: "m"                        # New Linear Gradient mask
         cw: "rightbracket"               # Increase brush size

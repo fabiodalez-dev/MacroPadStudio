@@ -7,7 +7,7 @@ layers:
   - buttons:
       - ["m",            # add marker at playhead
          "shift-m",      # go to next marker
-         "cmd-shift-m"]  # add marker and open marker dialog
+         "cmd-shift-m"]  # go to previous marker
     knobs:
       - ccw: "left"      # step one frame backward
         press: "space"   # play / pause

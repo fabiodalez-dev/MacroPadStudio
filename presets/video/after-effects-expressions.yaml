@@ -4,7 +4,7 @@ columns: 3
 knobs: 1
 layers:
   - buttons:
-      - ["cmd-shift-alt-e", "alt-click", "cmd-e"]  # Open expression editor (hold Alt+click stopwatch), enable expression field, open text editor
+      - ["e,e", "u", "alt-u"]  # Reveal expressions on selected layers, reveal animated properties, reveal keyframes and expressions
     knobs:
       - ccw: "cmd-z"        # Undo expression edit
         press: "enter"       # Confirm / apply expression

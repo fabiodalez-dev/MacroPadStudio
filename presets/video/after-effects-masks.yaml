@@ -4,7 +4,7 @@ columns: 3
 knobs: 1
 layers:
   - buttons:
-      - ["cmd-shift-n", "cmd-shift-i", "f"]  # New mask, Invert mask, Fit to frame / toggle mask view
+      - ["cmd-shift-n", "m,m", "f"]  # New mask, reveal all Mask properties, reveal Mask Feather
     knobs:
       - ccw: "minus"       # Zoom out composition view
         press: "cmd-shift-h" # Toggle mask visibility (View > Show Layer Controls)

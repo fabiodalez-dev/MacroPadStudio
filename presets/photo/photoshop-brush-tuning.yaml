@@ -5,7 +5,7 @@ knobs: 1
 
 layers:
   - buttons:
-      - ["b",            "opt-rightbracket", "opt-leftbracket"]  # Brush tool / Increase hardness / Decrease hardness
+      - ["b",            "shift-rightbracket", "shift-leftbracket"]  # Brush tool / Increase hardness / Decrease hardness
     knobs:
       - ccw: "leftbracket"   # decrease brush size
         press: "f5"           # open Brush Settings panel

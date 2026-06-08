@@ -6,7 +6,7 @@ knobs: 1
 layers:
   - buttons:
       - ["cmd-z",        # undo last motion design change
-         "cmd-shift-f",  # fit composition to viewer
+         "shift-slash",  # fit composition to viewer
          "cmd-shift-z"]  # redo
     knobs:
       - ccw: "left"      # step one frame backward

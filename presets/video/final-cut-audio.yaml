@@ -7,7 +7,7 @@ layers:
   - buttons:
       - ["cmd-4",              # show Audio inspector
          "cmd-9",              # open Audio enhancements
-         "ctrl-s"]             # detach audio from video
+         "ctrl-shift-s"]       # detach audio from video
     knobs:
       - ccw: "volumedown"      # decrease system monitor volume
         press: "mute"          # toggle mute

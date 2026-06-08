@@ -4,7 +4,7 @@ columns: 3
 knobs: 1
 layers:
   - buttons:
-      - ["cmd-shift-h", "cmd-shift-x", "cmd-alt-n"]  # Trim comp to work area, Crop comp to work area, New composition
+      - ["cmd-shift-x", "cmd-k", "cmd-n"]  # Trim comp to work area, Composition settings, New composition
     knobs:
       - ccw: "pagedown"        # Go to previous frame
         press: "space"         # Play / pause preview

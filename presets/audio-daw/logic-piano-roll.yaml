@@ -6,7 +6,7 @@ knobs: 1
 layers:
   - buttons:
       - ["cmd-a",             # select all notes in piano roll
-         "cmd-shift-f",       # open quantize menu
+         "q",                 # quantize selected notes
          "cmd-z"]             # undo last piano roll change
     knobs:
       - ccw: "leftbracket"    # decrease note length (shorter grid value)

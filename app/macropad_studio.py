@@ -154,11 +154,33 @@ def _profile_for_label(label):
 # Preset model helpers
 # ---------------------------------------------------------------------------
 
+def _search_blob(name, category, path):
+    """
+    Build a lowercase haystack for a preset: its name, category and every
+    action token (button keys + knob ccw/press/cw across all layers). This
+    lets the search box match by app/category AND by the actual shortcuts,
+    e.g. "copy", "cmd-c" or "volumeup".
+    """
+    parts = [name.replace("-", " "), name, category]
+    try:
+        data = parse_preset(path)
+        for layer in data.get("layers", []):
+            for row in layer.get("buttons", []):
+                parts.extend(str(t) for t in row)
+            for kn in layer.get("knobs", []):
+                if isinstance(kn, dict):
+                    parts.extend(str(v) for v in kn.values())
+    except Exception:
+        pass
+    return " ".join(parts).lower()
+
+
 def list_presets():
     """
     Recurse the presets directory and return a list of dicts:
-        { "name", "category", "path" }
-    sorted by category then name.
+        { "name", "category", "path", "search" }
+    sorted by category then name. "search" is a lowercase haystack used by
+    the filter (name + category + every action token).
     """
     items = []
     if not os.path.isdir(PRESETS_DIR):
@@ -172,7 +194,10 @@ def list_presets():
             parts = rel.split(os.sep)
             category = parts[0] if len(parts) > 1 else "uncategorized"
             name = os.path.splitext(fn)[0]
-            items.append({"name": name, "category": category, "path": path})
+            items.append({
+                "name": name, "category": category, "path": path,
+                "search": _search_blob(name, category, path),
+            })
     items.sort(key=lambda d: (d["category"], d["name"]))
     return items
 
@@ -926,7 +951,7 @@ class MacroPadStudio(ctk.CTk):
         for p in self.presets:
             if cat != "All categories" and p["category"] != cat:
                 continue
-            if q and q not in p["name"].lower() and q not in p["category"].lower():
+            if q and q not in p.get("search", (p["name"] + " " + p["category"]).lower()):
                 continue
             out.append(p)
         return out

@@ -6,7 +6,7 @@ knobs: 1
 layers:
   - buttons:
       - ["cmd-z",        # undo last action
-         "q",            # smart insert to left of playhead
+         "f9",           # smart insert at nearest edit point
          "cmd-shift-z"]  # redo
     knobs:
       - ccw: "left"      # step one frame backward

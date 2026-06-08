@@ -17,13 +17,17 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - **LED control** — per-key RGB colour, global brightness slider, and effect mode selection (Static / Breathing / Reactive) via a dedicated LED panel in the GUI. LED settings can also be embedded in YAML under the `led:` key.
 - **Device auto-detection** — the GUI scans connected USB devices on launch and pre-selects the matching pad profile. A device selector drop-down allows manual override.
 - **Multi-key example presets** — 12 new presets in `presets/examples-multikey/` demonstrating 6-key (3×2 + 1 knob), 9-key (3×3 + 2 knobs), and 12-key (4×3 + 3 knobs) layouts for popular apps including VS Code, OBS Studio, Logic Pro, DaVinci Resolve, Ableton Live, Premiere Pro, and Photoshop.
+- **Massively expanded preset library** — many context-specific presets per important app (e.g. Photoshop: layers, masking, retouch, painting, selection, transform, pen, camera-raw…; DaVinci, Lightroom, Logic, Ableton, Premiere, and more), bringing the library to **394 validated presets**.
+- **Action-aware search** — the Launcher search box now matches by app name, category, and the actual shortcut tokens (e.g. `copy`, `cmd-c`, `volumeup`, `wheelup`).
+- **GUI screenshot** in the README.
 
 ### Changed
 
 - GUI window now opens with a device selector at the top.
+- **Shortcut accuracy pass** — verified and corrected the default macOS shortcuts across DaVinci Resolve, Logic Pro, Photoshop, Lightroom Classic, Premiere Pro, After Effects, Ableton Live, and Final Cut Pro presets.
 - `docs/GUIDE.md` expanded with sections on device profiles, layers, sequences, mouse actions, LED control, and larger pads.
-- `docs/PRESETS.md` regenerated from all 193 YAML files; multi-key presets listed in a dedicated section.
-- `README.md` updated with supported-devices table and advanced features summary.
+- `docs/PRESETS.md` regenerated from all 394 YAML files; multi-key presets listed in a dedicated section.
+- `README.md` updated with supported-devices table, advanced features summary, and a GUI screenshot.
 
 ---
 

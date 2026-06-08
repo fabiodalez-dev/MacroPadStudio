@@ -4,7 +4,7 @@ columns: 3
 knobs: 1
 layers:
   - buttons:
-      - ["cmd-shift-m", "delete", "cmd-z"]   # Add GPS coordinates to selected / Remove GPS coordinates / Undo
+      - ["cmd-k", "g", "cmd-z"]   # Lock map markers / Back to Library Grid / Undo
     knobs:
       - ccw: "minus"                          # Zoom out map
         press: "escape"                        # Exit map / return to Library
