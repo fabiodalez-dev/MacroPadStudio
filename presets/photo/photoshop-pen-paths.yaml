@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["p",            "a",            "cmd-enter"]    # Pen tool / Direct Selection tool / Path to selection
+    knobs:
+      - ccw: "cmd-minus"    # zoom out (precision path work)
+        press: "cmd-0"       # fit on screen
+        cw: "cmd-equal"      # zoom in (precision path work)

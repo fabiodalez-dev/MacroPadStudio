@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["cmd-n", "shift-cmd-n", "b"]   # New collection / New collection set / Add to Quick Collection
+    knobs:
+      - ccw: "left"                       # Previous photo in filmstrip
+        press: "cmd-b"                    # Show/hide Quick Collection
+        cw: "right"                       # Next photo in filmstrip

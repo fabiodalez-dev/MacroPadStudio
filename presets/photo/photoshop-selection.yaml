@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-a",        "cmd-d",        "cmd-shift-i"]  # Select All / Deselect / Inverse selection
+    knobs:
+      - ccw: "cmd-opt-left"   # shrink selection (nudge)
+        press: "cmd-opt-r"    # open Refine Edge / Select and Mask
+        cw: "cmd-opt-right"   # expand selection (nudge)

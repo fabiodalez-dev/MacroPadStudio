@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["ctrl-o",        # jump to previous location in jumplist
+         "ctrl-i",        # jump to next location in jumplist
+         "ctrl-d"]        # scroll half-page down
+    knobs:
+      - ccw: "ctrl-u"    # scroll half-page up
+        press: "escape"  # return to normal mode
+        cw: "ctrl-d"     # scroll half-page down

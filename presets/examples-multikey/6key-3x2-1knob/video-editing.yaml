@@ -1,0 +1,18 @@
+model: ch57x
+orientation: normal
+rows: 3
+columns: 2
+knobs: 1
+
+# Video editing shortcuts for Final Cut Pro on macOS — 6-key 3x2 + 1 knob
+# Knob scrubs the timeline; keys cover the most frequent edit actions.
+
+layers:
+  - buttons:
+      - ["space",          "cmd-z"]          # Play / Pause  /  Undo
+      - ["cmd-b",          "cmd-shift-z"]    # Blade (cut clip at playhead)  /  Redo
+      - ["cmd-shift-d",    "delete"]         # Detach audio  /  Ripple delete selection
+    knobs:
+      - ccw: "left"       # step one frame backward
+        press: "space"    # play / pause toggle
+        cw: "right"       # step one frame forward

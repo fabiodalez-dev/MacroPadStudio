@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-t",        "escape",       "enter"]        # Free Transform / Cancel / Commit transform
+    knobs:
+      - ccw: "cmd-minus"    # zoom out (check proportions)
+        press: "cmd-0"       # fit on screen
+        cw: "cmd-equal"      # zoom in (check proportions)

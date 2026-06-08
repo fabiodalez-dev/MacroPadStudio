@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["f9", "space", "ctrl-z"]   # Start recording / stop-play toggle / undo last record action
+    knobs:
+      - ccw: "left"        # Step back one frame before re-recording
+        press: "space"     # Play / stop playback
+        cw: "right"        # Step forward one frame

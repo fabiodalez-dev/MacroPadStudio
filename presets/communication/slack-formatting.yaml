@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-b", "cmd-i", "cmd-shift-x"]  # bold / italic / strikethrough
+    knobs:
+      - ccw: "wheeldown"    # scroll message history down
+        press: "cmd-shift-y"  # set status
+        cw: "wheelup"       # scroll message history up

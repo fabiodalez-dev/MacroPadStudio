@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["shift-w", "alt-w", "ctrl-shift-w"]   # Add circular power window / invert window mask / delete selected window
+    knobs:
+      - ccw: "wheeldown"   # Decrease window softness
+        press: "shift-w"   # Toggle power window visibility
+        cw: "wheelup"      # Increase window softness

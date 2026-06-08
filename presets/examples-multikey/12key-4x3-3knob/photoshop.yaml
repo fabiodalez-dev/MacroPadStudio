@@ -1,0 +1,26 @@
+model: ch57x
+orientation: normal
+rows: 4
+columns: 3
+knobs: 3
+
+# Adobe Photoshop shortcuts for macOS — 12-key 4x3 + 3 knobs
+# Demonstrates a key SEQUENCE: new layer via keyboard then immediately rename it (cmd-shift-n, <200>, enter)
+# Knob 1: brush size  |  Knob 2: canvas zoom  |  Knob 3: layer opacity scroll
+
+layers:
+  - buttons:
+      - ["cmd-z",          "cmd-shift-z",  "cmd-alt-z"]           # Undo  / Redo  / Step backward
+      - ["b",              "e",            "s"]                    # Brush  / Eraser  / Clone Stamp
+      - ["cmd-j",          "cmd-shift-n,<200>,enter",  "cmd-e"]   # Duplicate layer  / New named layer (sequence)  / Merge down
+      - ["cmd-shift-alt-e","cmd-s",        "cmd-shift-alt-s"]      # Stamp visible  / Save  / Save for Web (Export As)
+    knobs:
+      - ccw: "leftbracket"    # decrease brush size
+        press: "f"             # cycle canvas / fullscreen modes
+        cw: "rightbracket"     # increase brush size
+      - ccw: "cmd-minus"      # zoom canvas out
+        press: "cmd-0"         # fit canvas on screen
+        cw: "cmd-equal"        # zoom canvas in
+      - ccw: "wheelup"        # scroll layer opacity up (in Layers panel)
+        press: "cmd-shift-alt-e"  # merge / stamp all visible layers
+        cw: "wheeldown"        # scroll layer opacity down

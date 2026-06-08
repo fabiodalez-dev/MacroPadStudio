@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["d", "t", "p"]   # sketch dimension | trim edge | project/include geometry
+    knobs:
+      - ccw: "wheeldown"  # zoom out canvas
+        press: "f"        # fit all in view
+        cw: "wheelup"     # zoom in canvas

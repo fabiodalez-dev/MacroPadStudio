@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-shift-e",  # export to Adobe Audition / send to Audition
+         "m",            # add audio keyframe / marker at playhead
+         "a"]            # select track forward tool (audio track selection)
+    knobs:
+      - ccw: "volumedown" # decrease system volume while previewing
+        press: "mute"     # mute / unmute monitor output
+        cw: "volumeup"    # increase system volume while previewing

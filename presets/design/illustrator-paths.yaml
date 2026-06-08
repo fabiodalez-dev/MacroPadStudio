@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-j",  "cmd-shift-alt-j",  "cmd-z"]       # Join paths / Average points / Undo
+    knobs:
+      - ccw: "cmd-minus"    # zoom out
+        press: "cmd-1"      # actual size (100%)
+        cw: "cmd-equal"     # zoom in

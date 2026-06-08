@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["x", "p", "u"]   # Reject photo / Pick (flag) / Unflag
+    knobs:
+      - ccw: "left"        # Previous photo
+        press: "space"     # Toggle loupe view
+        cw: "right"        # Next photo

@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-e",              # export / share the project
+         "cmd-shift-e",        # send to Compressor
+         "cmd-z"]              # undo last change
+    knobs:
+      - ccw: "left"            # step one frame backward
+        press: "space"         # play / pause
+        cw: "right"            # step one frame forward

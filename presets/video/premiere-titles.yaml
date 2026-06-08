@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-t",        # open Essential Graphics / new title
+         "cmd-z",        # undo last title edit
+         "escape"]       # deselect / exit text tool
+    knobs:
+      - ccw: "left"      # move selected title object left (nudge)
+        press: "v"       # switch to Selection tool
+        cw: "right"      # move selected title object right (nudge)

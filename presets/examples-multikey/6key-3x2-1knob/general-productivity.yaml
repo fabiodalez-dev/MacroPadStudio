@@ -1,0 +1,37 @@
+model: ch57x
+orientation: normal
+rows: 3
+columns: 2
+knobs: 1
+
+# General productivity shortcuts for macOS — 6-key 3x2 + 1 knob
+# Layer 1: everyday editing and window management
+# Layer 2: screenshot / clipboard tools (second layer for variety)
+
+layers:
+  - buttons:
+      - ["cmd-z",          "cmd-shift-z"]    # Undo / Redo
+      - ["cmd-c",          "cmd-v"]          # Copy / Paste
+      - ["cmd-w",          "cmd-q"]          # Close window / Quit app
+    knobs:
+      - ccw: "wheelup"    # scroll up — natural for documents
+        press: "cmd-a"    # select all
+        cw: "wheeldown"   # scroll down
+
+  - buttons:
+      - ["cmd-shift-3",    "cmd-shift-4"]    # Full screenshot / Area screenshot
+      - ["cmd-shift-5",    "cmd-shift-v"]    # Screenshot toolbar / Paste without formatting
+      - ["cmd-space",      "cmd-tab"]        # Spotlight search / Switch app
+    knobs:
+      - ccw: "cmd-leftbracket"   # navigate back (browser / Finder)
+        press: "cmd-shift-3"     # full screenshot
+        cw: "cmd-rightbracket"   # navigate forward
+
+  - buttons:
+      - ["cmd-shift-z",    "cmd-y"]          # Redo / Show Clipboard (not all apps)
+      - ["cmd-x",          "ctrl-cmd-q"]     # Cut / Lock screen
+      - ["cmd-h",          "cmd-m"]          # Hide window / Minimize window
+    knobs:
+      - ccw: "left"       # move cursor left
+        press: "enter"    # confirm / return
+        cw: "right"       # move cursor right

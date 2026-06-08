@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["grave",             # create marker at playhead position (backtick)
+         "cmd-grave",         # delete marker at playhead
+         "quote"]             # go to next marker (single quote key)
+    knobs:
+      - ccw: "cmd-left"       # go to previous marker
+        press: "grave"        # create marker at playhead
+        cw: "cmd-right"       # go to next marker

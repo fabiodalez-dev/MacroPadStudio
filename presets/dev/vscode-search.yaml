@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-shift-f",   # open global search panel
+         "cmd-shift-h",   # open global search+replace
+         "f4"]            # go to next search result
+    knobs:
+      - ccw: "shift-f4"  # previous search result
+        press: "cmd-shift-f"  # focus search panel
+        cw: "f4"         # next search result

@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-d",         # select next occurrence of current word
+         "cmd-shift-l",   # select all occurrences of current word
+         "opt-shift-i"]   # insert cursor at end of each selected line
+    knobs:
+      - ccw: "opt-up"    # move line up
+        press: "cmd-u"   # undo last cursor operation
+        cw: "opt-down"   # move line down

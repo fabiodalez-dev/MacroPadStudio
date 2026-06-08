@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["shift-f5",     # go to previous keyframe on selected property
+         "cmd-shift-k",  # add keyframe at playhead for selected effect property
+         "shift-f6"]     # go to next keyframe on selected property
+    knobs:
+      - ccw: "left"      # step one frame backward for precise keyframe placement
+        press: "space"   # play / pause to preview animation
+        cw: "right"      # step one frame forward for precise keyframe placement

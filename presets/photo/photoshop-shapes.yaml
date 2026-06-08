@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["u",            "a",            "cmd-enter"]    # Shape tool / Path Selection / Commit shape
+    knobs:
+      - ccw: "cmd-minus"   # zoom out
+        press: "cmd-0"      # fit on screen
+        cw: "cmd-equal"     # zoom in

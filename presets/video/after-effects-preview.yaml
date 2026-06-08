@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["space", "numpad0", "cmd-shift-g"]  # Play/pause, RAM preview, toggle grid
+    knobs:
+      - ccw: "left"        # Step one frame back
+        press: "space"     # Play / pause
+        cw: "right"        # Step one frame forward

@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-a",             # select all notes/regions to quantize
+         "q",                 # apply quantize to selection
+         "cmd-z"]             # undo last quantize
+    knobs:
+      - ccw: "leftbracket"    # decrease quantize grid value (finer)
+        press: "q"            # apply quantize
+        cw: "rightbracket"    # increase quantize grid value (coarser)

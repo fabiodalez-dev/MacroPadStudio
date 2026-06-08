@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-leftbracket", "cmd-rightbracket", "cmd-up"]  # go back / go forward / go to enclosing folder
+    knobs:
+      - ccw:   "cmd-leftbracket"    # navigate back in folder history
+        press: "cmd-down"           # open selected item
+        cw:    "cmd-rightbracket"   # navigate forward in folder history

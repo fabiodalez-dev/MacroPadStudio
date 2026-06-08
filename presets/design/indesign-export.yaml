@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-e",  "cmd-shift-e",  "cmd-alt-p"]       # Export / Export with previous / Print
+    knobs:
+      - ccw: "pageup"      # previous page
+        press: "cmd-j"     # go to page dialog
+        cw: "pagedown"     # next page

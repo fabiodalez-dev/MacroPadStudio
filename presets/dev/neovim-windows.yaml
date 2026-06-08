@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["ctrl-w,v",      # split window vertically
+         "ctrl-w,s",      # split window horizontally
+         "ctrl-w,w"]      # cycle to next window
+    knobs:
+      - ccw: "ctrl-w,h"  # move focus to left window
+        press: "ctrl-w,q" # close current window
+        cw: "ctrl-w,l"   # move focus to right window

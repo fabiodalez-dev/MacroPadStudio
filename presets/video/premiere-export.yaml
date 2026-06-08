@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-m",        # open Export dialog (Media Encoder queue)
+         "cmd-shift-h",  # send to Adobe Media Encoder queue
+         "space"]        # play / pause to preview before export
+    knobs:
+      - ccw: "left"      # step one frame backward during export preview
+        press: "i"       # set in point for export range
+        cw: "right"      # step one frame forward during export preview

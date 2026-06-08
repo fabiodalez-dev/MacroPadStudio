@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-opt-l",     # reformat code
+         "cmd-slash",     # toggle line comment
+         "opt-enter"]     # show intention actions / quick fix
+    knobs:
+      - ccw: "cmd-shift-up"   # move statement up
+        press: "cmd-opt-l"    # reformat code
+        cw: "cmd-shift-down"  # move statement down

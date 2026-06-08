@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-z",    "cmd-shift-e", "cmd-d"]      # Undo / Export / Deselect all
+    knobs:
+      - ccw: "alt-leftbracket"   # decrease exposure (Exposure tool: Exposure slider left)
+        press: "cmd-shift-r"     # reset all adjustments
+        cw: "alt-rightbracket"   # increase exposure (Exposure tool: Exposure slider right)

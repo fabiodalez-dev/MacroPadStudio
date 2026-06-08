@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-k",             # open/close take folder (comping mode)
+         "cmd-f",             # quick swipe comping - select take segment
+         "cmd-z"]             # undo last comp selection
+    knobs:
+      - ccw: "left"           # move playhead left to review takes
+        press: "space"        # play / stop
+        cw: "right"           # move playhead right to review takes

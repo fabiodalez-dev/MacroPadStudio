@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["cmd-b", "cmd-i", "cmd-u"]   # bold, italic, underline
+    knobs:
+      - ccw: "cmd-shift-leftbracket"   # decrease font size
+        press: "cmd-d"                 # font dialog
+        cw: "cmd-shift-rightbracket"   # increase font size

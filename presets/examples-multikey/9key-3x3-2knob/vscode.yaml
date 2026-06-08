@@ -1,0 +1,34 @@
+model: ch57x
+orientation: normal
+rows: 3
+columns: 3
+knobs: 2
+
+# Visual Studio Code shortcuts for macOS — 9-key 3x3 + 2 knobs
+# Demonstrates a key SEQUENCE: trigger rename-symbol then select-all-occurrences (F2, cmd-shift-l)
+# Knob 1: switch editor tabs  |  Knob 2: scroll editor
+
+layers:
+  - buttons:
+      - ["cmd-shift-p",    "cmd-p",       "cmd-z"]          # Command Palette  / Quick Open  / Undo
+      - ["cmd-shift-k",    "alt-shift-f",  "cmd-slash"]      # Delete line  / Format doc  / Toggle comment
+      - ["f5",             "shift-f5",    "f2,cmd-shift-l"]  # Start debug  / Stop debug  / Rename symbol → select all (sequence)
+    knobs:
+      - ccw: "cmd-shift-leftbracket"   # switch to previous editor tab
+        press: "cmd-b"                  # toggle sidebar visibility
+        cw: "cmd-shift-rightbracket"    # switch to next editor tab
+      - ccw: "wheelup"    # scroll editor content up
+        press: "cmd-k,cmd-0"  # fold all (chord sequence — press knob)
+        cw: "wheeldown"   # scroll editor content down
+
+  - buttons:
+      - ["ctrl-grave",     "cmd-shift-5",  "cmd-k,cmd-t"]    # Open terminal  / Split terminal  / Change color theme
+      - ["cmd-shift-e",    "cmd-shift-f",  "ctrl-shift-g"]   # Explorer panel  / Search panel  / Source Control
+      - ["cmd-k,cmd-c",    "cmd-k,cmd-u",  "cmd-k,cmd-0"]    # Add line comment  / Remove line comment  / Fold all
+    knobs:
+      - ccw: "ctrl-minus"          # navigate back in edit history
+        press: "ctrl-grave"         # toggle integrated terminal
+        cw: "ctrl-shift-minus"      # navigate forward in edit history
+      - ccw: "cmd-up"     # jump to top of file
+        press: "cmd-shift-p"  # Command Palette
+        cw: "cmd-down"    # jump to bottom of file

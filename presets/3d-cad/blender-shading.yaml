@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["z", "cmd-z", "cmd-shift-z"]   # open shade pie menu | Undo | Redo
+    knobs:
+      - ccw: "wheeldown"  # zoom out in node editor
+        press: "numpaddot"     # zoom to selected node(s)
+        cw: "wheelup"   # zoom in in node editor

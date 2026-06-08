@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-leftbracket",   # navigate back
+         "cmd-rightbracket",  # navigate forward
+         "cmd-r"]             # reload page
+    knobs:
+      - ccw: "wheelup"        # scroll up
+        press: "cmd-h"        # open history sidebar
+        cw: "wheeldown"       # scroll down

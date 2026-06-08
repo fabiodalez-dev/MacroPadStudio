@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["cmd-1", "cmd-b", "cmd-shift-p"]   # format cells dialog, bold, format as percent
+    knobs:
+      - ccw: "cmd-shift-leftbracket"   # decrease indent
+        press: "cmd-1"                 # format cells dialog
+        cw: "cmd-shift-rightbracket"   # increase indent

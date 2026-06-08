@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-e",            # separate clip at playhead
+         "cmd-z",            # undo
+         "cmd-h"]            # heal separation
+    knobs:
+      - ccw: "left"          # nudge selection / playhead backward
+        press: "f5"          # switch to selector tool
+        cw: "right"          # nudge selection / playhead forward

@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-shift-s",  "cmd-opt-shift-s", "cmd-opt-shift-w"]  # Save As / Save for Web (legacy) / Export As
+    knobs:
+      - ccw: "cmd-minus"   # zoom out (preview at actual size)
+        press: "cmd-1"      # 100% actual pixels
+        cw: "cmd-equal"     # zoom in

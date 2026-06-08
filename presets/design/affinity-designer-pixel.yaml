@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-j",  "cmd-e",  "cmd-z"]       # Duplicate layer / Merge down / Undo
+    knobs:
+      - ccw: "leftbracket"    # decrease brush size
+        press: "x"            # swap foreground/background colour
+        cw: "rightbracket"    # increase brush size

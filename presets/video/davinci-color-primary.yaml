@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["shift-h", "ctrl-d", "alt-z"]   # Reset all grades / toggle color page bypass / undo grade change
+    knobs:
+      - ccw: "wheeldown"   # Scroll through clips in color timeline (prev)
+        press: "shift-h"   # Reset all primary wheels
+        cw: "wheelup"      # Scroll through clips in color timeline (next)

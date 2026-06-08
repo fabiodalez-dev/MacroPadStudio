@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["ctrl-down",    "ctrl-up",      "cmd-grave"]    # App Expose: show all windows of current app / Mission Control / cycle windows of same app
+    knobs:
+      - ccw:   "cmd-shift-tab"  # cycle backwards through apps in switcher
+        press: "ctrl-down"      # show all windows of current app (App Expose)
+        cw:    "cmd-tab"        # cycle forwards through apps in switcher

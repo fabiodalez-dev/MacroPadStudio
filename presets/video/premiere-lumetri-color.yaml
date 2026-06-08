@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-z",        # undo last color adjustment
+         "shift-d",      # reset to default / remove effects from clip
+         "cmd-shift-z"]  # redo color adjustment
+    knobs:
+      - ccw: "left"      # step one frame backward to check color
+        press: "space"   # play / pause color preview
+        cw: "right"      # step one frame forward to check color

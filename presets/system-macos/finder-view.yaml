@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-1",        "cmd-2",        "cmd-3"]        # icon view / list view / column view
+    knobs:
+      - ccw:   "cmd-minus"    # zoom out / decrease icon size
+        press: "cmd-j"        # show view options panel
+        cw:    "cmd-equal"    # zoom in / increase icon size

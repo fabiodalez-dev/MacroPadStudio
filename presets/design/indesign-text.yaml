@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-t",  "cmd-shift-t",  "cmd-z"]       # Character panel / Paragraph panel / Undo
+    knobs:
+      - ccw: "cmd-shift-comma"    # decrease font size
+        press: "escape"           # exit text frame
+        cw: "cmd-shift-dot"       # increase font size

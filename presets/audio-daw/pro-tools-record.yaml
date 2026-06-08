@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["f12",              # record (quick punch)
+         "space",            # play / stop
+         "cmd-shift-p"]      # pre-roll toggle
+    knobs:
+      - ccw: "left"          # move playhead backward
+        press: "space"       # play / pause
+        cw: "right"          # move playhead forward

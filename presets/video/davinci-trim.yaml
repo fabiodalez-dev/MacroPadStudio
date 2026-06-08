@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["u", "shift-leftbracket", "shift-rightbracket"]   # Trim mode toggle / trim start (ripple) / trim end (ripple)
+    knobs:
+      - ccw: "left"        # Nudge clip one frame left
+        press: "u"         # Toggle trim edit mode
+        cw: "right"        # Nudge clip one frame right

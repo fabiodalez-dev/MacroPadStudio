@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["home",         # go to beginning of sequence
+         "end",          # go to end of sequence
+         "space"]        # play / pause
+    knobs:
+      - ccw: "minus"     # zoom out timeline
+        press: "backslash" # fit sequence in timeline window
+        cw: "equal"      # zoom in timeline

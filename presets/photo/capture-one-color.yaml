@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-z",    "cmd-shift-b", "cmd-d"]      # Undo / White Balance eyedropper / Deselect all
+    knobs:
+      - ccw: "wheeldown"  # scroll color temperature cooler
+        press: "cmd-shift-r"  # reset all adjustments
+        cw: "wheelup"    # scroll color temperature warmer

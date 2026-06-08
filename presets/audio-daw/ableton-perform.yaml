@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["space",            # play / stop
+         "f9",               # toggle global record
+         "tab"]              # toggle session / arrangement view
+    knobs:
+      - ccw: "volumedown"    # decrease master output volume
+        press: "mute"        # toggle master mute
+        cw: "volumeup"       # increase master output volume

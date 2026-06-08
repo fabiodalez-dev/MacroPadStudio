@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["cmd-m", "cmd-d", "cmd-shift-v"]   # new slide, duplicate slide, paste and match formatting
+    knobs:
+      - ccw: "cmd-shift-pageup"    # move slide up in deck
+        press: "cmd-d"             # duplicate current slide
+        cw: "cmd-shift-pagedown"   # move slide down in deck

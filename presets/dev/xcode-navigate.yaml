@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-ctrl-j",    # jump to definition
+         "cmd-ctrl-left", # navigate back
+         "cmd-ctrl-right"] # navigate forward
+    knobs:
+      - ccw: "cmd-ctrl-left"   # navigate back in history
+        press: "cmd-shift-o"   # open quickly (file search)
+        cw: "cmd-ctrl-right"   # navigate forward in history

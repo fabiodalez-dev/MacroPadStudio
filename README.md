@@ -1,33 +1,66 @@
 # MacroPad Studio
 
-**macOS configuration manager for the CH57x 3-key + 1-knob USB macro pad**
+**macOS configuration manager for CH57x USB macro pads — 3-key up to 12-key with rotary knobs**
 
-<img src="assets/macropad.jpg" alt="CH57x 3-key macro pad with rotary knob" width="400">
+<img src="assets/macropad.jpg" alt="CH57x macro pad with rotary knob" width="400">
 
-> **The hardware:** this is the popular, inexpensive **3-key mechanical macro keypad with a rotary knob** widely sold on **AliExpress, Amazon, eBay, Temu and Banggood** (often listed as *"3 Key Custom Keyboard RGB Macro Pad"*, *"Mini Programmable Knob Keyboard"*, *"OSU! Macro Pad"* or *"DIY Hot-swap Keypad"*). Internally it uses a **CH57x** chip and enumerates as USB `0x1189:0x8890`. The bundled software is **Windows-only** — this project lets you configure it natively on **macOS**.
+> **The hardware:** these are the popular, inexpensive **mechanical macro keypads with rotary knobs** widely sold on **AliExpress, Amazon, eBay, Temu and Banggood** (often listed as *"3 Key Custom Keyboard RGB Macro Pad"*, *"Mini Programmable Knob Keyboard"*, *"OSU! Macro Pad"* or *"DIY Hot-swap Keypad"*). They use a **CH57x** chip and the bundled software is **Windows-only** — this project lets you configure them natively on **macOS**.
 
 ---
 
 ## What it does
 
-This project gives macOS users full control over a compact USB macro pad based on the CH57x chip (VID `0x1189` / PID `0x8890`). The device ships with a Windows-only configuration utility. This repository provides:
+This project gives macOS users full control over compact USB macro pads based on the CH57x chip. The devices ship with a Windows-only configuration utility. This repository provides:
 
-- A library of **150+ ready-to-use YAML presets** covering apps from video editors to DAWs, browsers, coding tools, photo editors, and more.
-- A **CustomTkinter GUI** (`app/macropad_studio.py`) that lets you browse, edit, record key bindings, and upload presets — no terminal required.
+- A library of **394 ready-to-use YAML presets** covering apps from video editors to DAWs, browsers, coding tools, photo editors, and more — including dedicated multi-key presets for larger pad geometries.
+- A **CustomTkinter GUI** (`app/macropad_studio.py`) that lets you browse, edit, record key bindings, and upload presets — no terminal required. Features a **device selector**, **layer tabs**, and an **LED control panel**.
 - Shell **helper scripts** for installation, verification, and one-command uploads.
+
+---
+
+## Supported devices
+
+All variants share VID `0x1189`. The tool auto-detects the connected device and selects the matching profile.
+
+| Geometry | Buttons | Knobs | Product ID (PID) | LED |
+|---|---|---|---|---|
+| 3×1 | 3 | 1 | `0x8890` | RGB per-key |
+| 3×2 | 6 | 1 | `0x8890` | RGB per-key |
+| 3×3 | 9 | 2 | `0x8890` | RGB per-key |
+| 4×1 | 4 | 1 | `0x8840` | RGB per-key |
+| 4×3 | 12 | 3 | `0x8840` | RGB per-key |
+| 5×3 | 15 | 3 | `0x8842` | RGB per-key |
+| 12-key (alt) | 12 | 3 | `0x8842` | RGB per-key |
+
+> **Not a QMK/VIA device.** Do not attempt to flash VIA firmware. The CH57x chip uses a proprietary HID protocol implemented by `ch57x-keyboard-tool`.
+
+### Advanced features (v2)
+
+| Feature | Details |
+|---|---|
+| **3 layers** | Each preset can define up to 3 independent layers, switchable from the pad or GUI |
+| **Key sequences** | Chain actions with commas: `cmd-shift-n,<200>,enter` (the `<N>` syntax inserts a millisecond delay) |
+| **Mouse actions** | `wheel(3)` / `wheel(-3)` for scroll; `wheelup` / `wheeldown` aliases |
+| **LED control** | Set per-key colour, brightness, and effect mode (static, breathing, reactive) via the GUI LED panel |
+| **Device auto-detection** | The GUI scans USB on launch and pre-selects the detected PID/geometry |
 
 ---
 
 ## How the tool integration works
 
-Presets are plain **YAML files** that describe what each of the three buttons and the rotary knob (counter-clockwise / press / clockwise) should send.
+Presets are plain **YAML files** that describe what each button and knob (counter-clockwise / press / clockwise) should send.
 
 ```
 presets/
   video/
-    final-cut-pro.yaml   ← one preset per app / workflow
+    final-cut-pro.yaml       ← one preset per app / workflow
   dev/
     vscode-edit.yaml
+  examples-multikey/
+    9key-3x3-2knob/
+      vscode.yaml            ← multi-layer preset for 9-key pad
+    12key-4x3-3knob/
+      photoshop.yaml
   ...
 ```
 
@@ -71,9 +104,12 @@ python3 app/macropad_studio.py
 
 | Feature | Description |
 |---|---|
+| **Device selector** | Drop-down on launch — pick your pad geometry (3×1, 3×3, 4×3, etc.) or let auto-detection fill it in |
 | **Launcher** | Browse all preset categories and upload with one click |
 | **Editor** | Edit button and knob bindings for any preset in a visual form |
+| **Layer tabs** | Switch between Layer 1, 2, and 3 to edit multi-layer presets |
 | **Key recorder** | Press any shortcut on your keyboard — it is captured and normalised automatically |
+| **LED panel** | Set per-key colour, global brightness, and effect mode without touching a YAML file |
 
 ---
 
@@ -101,20 +137,21 @@ bash scripts/verify.sh
 
 | Category | Presets | Example apps |
 |---|---|---|
-| `3d-cad` | 13 | Blender, AutoCAD, Fusion 360, Maya, ZBrush |
-| `audio-daw` | 14 | Logic Pro, Ableton, Pro Tools, Reaper, GarageBand |
-| `browser` | 9 | Chrome, Safari, Firefox, Arc, Brave |
-| `communication` | 12 | Zoom, Slack, Teams, Discord, FaceTime |
-| `design` | 12 | Figma, Photoshop, Illustrator, Sketch, Canva |
-| `dev` | 19 | VS Code (7 modes), Xcode, Neovim, Cursor, iTerm |
+| `3d-cad` | 20 | Blender, AutoCAD, Fusion 360, Maya, ZBrush |
+| `audio-daw` | 56 | Logic Pro, Ableton, Pro Tools, Reaper, GarageBand |
+| `browser` | 21 | Chrome, Safari, Firefox, Arc, Brave |
+| `communication` | 20 | Zoom, Slack, Teams, Discord, FaceTime |
+| `design` | 27 | Figma, Photoshop, Illustrator, Sketch, Canva |
+| `dev` | 38 | VS Code (7 modes), Xcode, Neovim, Cursor, iTerm |
+| `examples-multikey` | 12 | Multi-layout examples for 6-, 9-, and 12-key pads |
 | `music-notation` | 5 | Dorico, Sibelius, Finale, MuseScore |
-| `office` | 15 | Word, Excel, Keynote, Notion, Obsidian, Pages |
-| `photo` | 19 | Lightroom, Capture One, Darktable, GIMP, Affinity Photo |
+| `office` | 30 | Word, Excel, Keynote, Notion, Obsidian, Pages |
+| `photo` | 55 | Lightroom, Capture One, Darktable, GIMP, Affinity Photo |
 | `reading-pdf` | 6 | Preview, Skim, Adobe Acrobat, Apple Books |
 | `streaming` | 7 | OBS Studio, Ecamm Live, Streamlabs, Twitch |
-| `system-macos` | 13 | Screenshots, Mission Control, Media, Finder, Spotlight |
+| `system-macos` | 30 | Screenshots, Mission Control, Media, Finder, Spotlight |
 | `utility` | 10 | Clipboard, Emoji, Window snapping, 1Password |
-| `video` | 21 | Final Cut Pro, DaVinci Resolve (6 modes), Premiere Pro, After Effects |
+| `video` | 57 | Final Cut Pro, DaVinci Resolve (6 modes), Premiere Pro, After Effects |
 
 Full binding details for every preset: [docs/PRESETS.md](docs/PRESETS.md)
 
@@ -122,8 +159,9 @@ Full binding details for every preset: [docs/PRESETS.md](docs/PRESETS.md)
 
 ## Documentation
 
-- [docs/GUIDE.md](docs/GUIDE.md) — hardware identification, install walkthrough, YAML editing reference, knob behaviour, troubleshooting
-- [docs/PRESETS.md](docs/PRESETS.md) — complete binding tables for all presets, auto-generated from the YAML files
+- [docs/GUIDE.md](docs/GUIDE.md) — hardware identification, install walkthrough, YAML editing reference, layers, key sequences, mouse actions, LED control, knob behaviour, troubleshooting
+- [docs/PRESETS.md](docs/PRESETS.md) — complete binding tables for all presets, generated from the YAML files
+- [CHANGELOG.md](CHANGELOG.md) — version history
 
 ---
 

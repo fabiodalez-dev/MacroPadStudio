@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["f5", "escape", "b"]   # start slideshow from beginning, end slideshow, black screen toggle
+    knobs:
+      - ccw: "left"     # previous slide
+        press: "b"      # black screen toggle
+        cw: "right"     # next slide

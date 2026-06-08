@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["space", "f9", "f8"]   # play/pause | record active object keyframe | record all keyframes
+    knobs:
+      - ccw: "left"   # previous frame
+        press: "f"    # go to first frame
+        cw: "right"   # next frame

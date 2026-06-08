@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-shift-b",   # run build task
+         "ctrl-shift-grave",  # open integrated terminal
+         "shift-f5"]      # run without debugging
+    knobs:
+      - ccw: "shift-f5"  # run without debugging
+        press: "cmd-shift-p"  # command palette (run task)
+        cw: "f5"          # start debugging

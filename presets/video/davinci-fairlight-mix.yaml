@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["m", "s", "cmd-shift-a"]   # Mute selected track / solo selected track / deselect all tracks
+    knobs:
+      - ccw: "volumedown"  # Decrease master output volume
+        press: "mute"      # Toggle master mute
+        cw: "volumeup"     # Increase master output volume

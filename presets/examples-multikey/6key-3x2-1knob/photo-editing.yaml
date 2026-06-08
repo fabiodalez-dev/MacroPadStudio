@@ -1,0 +1,19 @@
+model: ch57x
+orientation: normal
+rows: 3
+columns: 2
+knobs: 1
+
+# Photo editing shortcuts for Adobe Photoshop on macOS — 6-key 3x2 + 1 knob
+# Knob adjusts brush size; keys handle the most common retouching workflow.
+# Row 1: history  |  Row 2: tools  |  Row 3: export / save
+
+layers:
+  - buttons:
+      - ["cmd-z",          "cmd-shift-z"]    # Undo (step backward)  /  Redo (step forward)
+      - ["b",              "e"]              # Brush tool  /  Eraser tool
+      - ["cmd-shift-s",    "cmd-shift-alt-s"]  # Save As  /  Export As (sequence demo)
+    knobs:
+      - ccw: "leftbracket"   # decrease brush size
+        press: "f"            # cycle canvas / fullscreen modes
+        cw: "rightbracket"    # increase brush size

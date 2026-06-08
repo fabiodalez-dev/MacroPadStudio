@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-4",              # show Audio inspector
+         "cmd-9",              # open Audio enhancements
+         "ctrl-s"]             # detach audio from video
+    knobs:
+      - ccw: "volumedown"      # decrease system monitor volume
+        press: "mute"          # toggle mute
+        cw: "volumeup"         # increase system monitor volume

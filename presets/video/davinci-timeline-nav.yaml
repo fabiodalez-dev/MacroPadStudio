@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["home", "end", "cmd-home"]   # Go to start of timeline / go to end / go to timecode start
+    knobs:
+      - ccw: "left"        # Step one frame back
+        press: "k"         # Pause playback
+        cw: "right"        # Step one frame forward

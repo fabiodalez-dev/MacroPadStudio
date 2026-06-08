@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-z",    "cmd-c",      "cmd-alt-v"]    # Undo / Copy adjustments / Apply last style
+    knobs:
+      - ccw: "left"   # previous image in browser
+        press: "space" # toggle full-screen viewer
+        cw: "right"   # next image in browser

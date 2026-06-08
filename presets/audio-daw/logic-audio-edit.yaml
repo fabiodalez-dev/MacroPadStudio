@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-t",             # split region at playhead
+         "delete",            # delete selected region
+         "cmd-j"]             # join selected regions
+    knobs:
+      - ccw: "cmd-left"       # nudge region left
+        press: "cmd-z"        # undo last edit
+        cw: "cmd-right"       # nudge region right

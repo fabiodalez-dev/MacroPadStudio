@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["ctrl-1",       "ctrl-2",       "ctrl-3"]       # switch to Space 1 / Space 2 / Space 3
+    knobs:
+      - ccw:   "ctrl-left"    # switch to previous Space
+        press: "ctrl-up"      # open Mission Control
+        cw:    "ctrl-right"   # switch to next Space

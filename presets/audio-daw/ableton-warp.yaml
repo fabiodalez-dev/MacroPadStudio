@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-shift-w",      # toggle warp on/off for selected clip
+         "space",            # play / stop preview
+         "cmd-z"]            # undo last warp edit
+    knobs:
+      - ccw: "left"          # move playhead / scrub backward
+        press: "space"       # play / stop
+        cw: "right"          # move playhead / scrub forward

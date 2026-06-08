@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["m",            # add marker at playhead
+         "shift-m",      # go to next marker
+         "cmd-shift-m"]  # add marker and open marker dialog
+    knobs:
+      - ccw: "left"      # step one frame backward
+        press: "space"   # play / pause
+        cw: "right"      # step one frame forward

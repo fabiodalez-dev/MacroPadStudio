@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-b",         # build
+         "cmd-r",         # run
+         "cmd-u"]         # run tests
+    knobs:
+      - ccw: "cmd-shift-k"   # clean build folder
+        press: "cmd-b"        # build
+        cw: "cmd-r"           # run

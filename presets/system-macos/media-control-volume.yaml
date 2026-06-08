@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["mute",         "volumedown",   "volumeup"]     # mute / volume down / volume up
+    knobs:
+      - ccw:   "volumedown"   # decrease volume
+        press: "mute"         # toggle mute
+        cw:    "volumeup"     # increase volume

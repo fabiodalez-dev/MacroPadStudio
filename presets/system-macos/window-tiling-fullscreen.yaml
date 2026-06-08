@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["ctrl-cmd-f",   "cmd-m",        "cmd-w"]        # toggle full screen / minimize window / close window
+    knobs:
+      - ccw:   "ctrl-left"    # switch to previous Space
+        press: "ctrl-cmd-f"   # toggle full screen
+        cw:    "ctrl-right"   # switch to next Space

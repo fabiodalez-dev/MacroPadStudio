@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["t",                  # select trim tool
+         "cmd-alt-right",      # extend edit one frame to the right
+         "cmd-alt-left"]       # extend edit one frame to the left
+    knobs:
+      - ccw: "comma"           # nudge clip one frame left
+        press: "space"         # play / pause
+        cw: "dot"              # nudge clip one frame right

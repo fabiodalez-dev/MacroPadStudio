@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-l",        "cmd-m",        "cmd-b"]        # Levels / Curves / Color Balance
+    knobs:
+      - ccw: "cmd-shift-l"   # Auto Tone (quick preview)
+        press: "cmd-shift-u"  # Desaturate (check luminance)
+        cw: "cmd-u"           # Hue/Saturation dialog

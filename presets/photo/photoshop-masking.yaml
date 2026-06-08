@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-i",        "cmd-opt-g",    "cmd-shift-n"]  # Invert mask / Clipping mask / New layer
+    knobs:
+      - ccw: "leftbracket"   # decrease brush size (paint mask)
+        press: "q"            # toggle Quick Mask mode
+        cw: "rightbracket"   # increase brush size (paint mask)

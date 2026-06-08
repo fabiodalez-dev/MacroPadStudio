@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["f12",           # go to definition
+         "opt-f12",       # peek definition
+         "shift-f12"]     # find all references
+    knobs:
+      - ccw: "ctrl-minus"     # navigate back
+        press: "cmd-p"        # quick open file
+        cw: "ctrl-shift-minus" # navigate forward

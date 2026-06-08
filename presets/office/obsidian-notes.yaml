@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["cmd-n", "cmd-shift-f", "cmd-e"]   # new note, search in vault, toggle edit/preview
+    knobs:
+      - ccw: "cmd-z"     # undo
+        press: "cmd-e"   # toggle edit / preview mode
+        cw: "cmd-y"      # redo

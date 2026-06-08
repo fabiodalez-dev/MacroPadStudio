@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-shift-left", "cmd-shift-right", "cmd-a"]   # select to line start / select to line end / select all
+    knobs:
+      - ccw:   "shift-left"   # extend selection one character left
+        press: "cmd-a"        # select all text
+        cw:    "shift-right"  # extend selection one character right

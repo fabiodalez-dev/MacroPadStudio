@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-shift-x",  "cmd-z",        "enter"]        # Open Liquify filter / Undo / Commit
+    knobs:
+      - ccw: "leftbracket"   # decrease brush size in Liquify
+        press: "b"            # select Forward Warp tool
+        cw: "rightbracket"   # increase brush size in Liquify

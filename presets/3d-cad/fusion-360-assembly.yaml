@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["j", "cmd-z", "cmd-shift-z"]   # joint | undo | redo
+    knobs:
+      - ccw: "wheeldown"  # zoom out canvas
+        press: "f"        # fit all in view
+        cw: "wheelup"     # zoom in canvas

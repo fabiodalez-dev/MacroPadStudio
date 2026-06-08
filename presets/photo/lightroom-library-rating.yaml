@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["6", "7", "8"]   # Assign color label Red / Yellow / Green
+    knobs:
+      - ccw: "2"           # Set 2-star rating
+        press: "0"         # Remove rating
+        cw: "4"            # Set 4-star rating

@@ -1,0 +1,23 @@
+model: ch57x
+orientation: normal
+rows: 3
+columns: 3
+knobs: 2
+
+# OBS Studio streaming / recording shortcuts for macOS — 9-key 3x3 + 2 knobs
+# OBS uses global hotkeys configured in Preferences > Hotkeys; defaults shown here.
+# Knob 1: cycle scenes  |  Knob 2: adjust desktop audio volume (media keys)
+# Demonstrates a SEQUENCE: start stream + start recording together (cmd-shift-s, cmd-shift-r)
+
+layers:
+  - buttons:
+      - ["cmd-shift-s",    "cmd-shift-r",  "cmd-shift-s,cmd-shift-r"]  # Stream  / Record  / Start both (sequence)
+      - ["ctrl-1",         "ctrl-2",       "ctrl-3"]                    # Switch to Scene 1 / 2 / 3 (custom hotkeys)
+      - ["cmd-shift-m",    "cmd-f",        "space"]                     # Mute mic  / Studio mode  / Transition cut
+    knobs:
+      - ccw: "left"        # switch to previous scene (custom hotkey: arrow left)
+        press: "space"     # execute scene transition
+        cw: "right"        # switch to next scene (custom hotkey: arrow right)
+      - ccw: "volumedown"  # decrease desktop audio output
+        press: "mute"      # mute / unmute desktop audio
+        cw: "volumeup"     # increase desktop audio output

@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["c",        "enter",      "cmd-z"]        # Activate crop tool / Apply crop / Undo
+    knobs:
+      - ccw: "wheeldown"  # zoom out
+        press: "cmd-0"    # fit image to window
+        cw: "wheelup"    # zoom in

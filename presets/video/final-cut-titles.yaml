@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["ctrl-t",             # add default title to timeline
+         "cmd-4",              # open inspector for title properties
+         "cmd-z"]              # undo last change
+    knobs:
+      - ccw: "left"            # step one frame backward
+        press: "space"         # play / pause
+        cw: "right"            # step one frame forward

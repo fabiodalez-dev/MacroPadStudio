@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["cmd-i", "f2", "cmd-shift-n"]   # Import media / rename selected clip / create new bin
+    knobs:
+      - ccw: "wheeldown"   # Scroll media pool list up (prev clip)
+        press: "space"     # Preview selected clip in source viewer
+        cw: "wheelup"      # Scroll media pool list down (next clip)

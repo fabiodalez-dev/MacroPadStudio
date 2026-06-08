@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-d",         # select next occurrence of current word
+         "opt-enter",     # apply quick fix / inline edit suggestion
+         "cmd-slash"]     # toggle line comment
+    knobs:
+      - ccw: "opt-up"    # move line up
+        press: "cmd-u"   # undo last cursor selection
+        cw: "opt-down"   # move line down

@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["f9",               # toggle global record arm
+         "space",            # play / stop
+         "cmd-z"]            # undo last recording
+    knobs:
+      - ccw: "left"          # nudge playhead backward
+        press: "f9"          # toggle global record arm
+        cw: "right"          # nudge playhead forward

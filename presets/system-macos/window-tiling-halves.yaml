@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["ctrl-left",    "ctrl-alt-f",   "ctrl-right"]   # tile window left half / fill screen / tile window right half
+    knobs:
+      - ccw:   "ctrl-alt-left"    # move window to left display
+        press: "ctrl-alt-f"       # fill / un-fill screen
+        cw:    "ctrl-alt-right"   # move window to right display

@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-shift-5",  "cmd-shift-6",  "cmd-ctrl-shift-3"]  # screenshot/recording toolbar / capture Touch Bar / copy full screen to clipboard
+    knobs:
+      - ccw:   "volumedown"   # decrease system volume during recording
+        press: "mute"         # mute/unmute system audio
+        cw:    "volumeup"     # increase system volume during recording

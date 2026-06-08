@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["f12",               # open / close DevTools
+         "f12",               # placeholder — toggle DevTools (same as open)
+         "cmd-shift-m"]       # toggle responsive design mode
+    knobs:
+      - ccw: "cmd-leftbracket"    # navigate back in browser history
+        press: "cmd-r"            # reload page
+        cw: "cmd-rightbracket"    # navigate forward in browser history

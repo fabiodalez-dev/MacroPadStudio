@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-k", "cmd-shift-k", "cmd-shift-a"]  # quick switcher / direct messages / all unreads
+    knobs:
+      - ccw: "alt-up"       # navigate to previous channel
+        press: "enter"      # open / confirm selection
+        cw: "alt-down"      # navigate to next channel

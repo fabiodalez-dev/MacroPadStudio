@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["f3",               # show/hide mixer (MixConsole)
+         "z",                # undo
+         "cmd-z"]            # undo (alternate)
+    knobs:
+      - ccw: "wheeldown"     # scroll MixConsole channels left
+        press: "f3"          # toggle MixConsole window
+        cw: "wheelup"        # scroll MixConsole channels right

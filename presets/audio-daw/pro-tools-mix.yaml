@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-m",            # show/hide mix window
+         "cmd-shift-m",      # show/hide I/O setup
+         "cmd-alt-m"]        # toggle mix window to front
+    knobs:
+      - ccw: "wheeldown"     # scroll mix window left
+        press: "cmd-m"       # toggle mix window focus
+        cw: "wheelup"        # scroll mix window right

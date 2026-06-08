@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-alt-m",        # show/hide mixer (FX chain)
+         "m",                # mute selected track
+         "s"]                # solo selected track
+    knobs:
+      - ccw: "wheeldown"     # scroll mixer left
+        press: "cmd-alt-m"   # toggle mixer window
+        cw: "wheelup"        # scroll mixer right

@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["cmd-shift-e", "cmd-alt-shift-e", "cmd-z"]   # Export / Export with previous settings / Undo
+    knobs:
+      - ccw: "left"                                     # Previous photo in filmstrip
+        press: "cmd-a"                                  # Select all photos
+        cw: "right"                                     # Next photo in filmstrip

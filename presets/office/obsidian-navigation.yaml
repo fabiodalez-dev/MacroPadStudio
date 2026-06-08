@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["cmd-o", "cmd-shift-o", "cmd-shift-e"]   # quick open note, open recent, reveal in file explorer
+    knobs:
+      - ccw: "cmd-alt-left"    # navigate back
+        press: "cmd-o"         # quick open note
+        cw: "cmd-alt-right"    # navigate forward

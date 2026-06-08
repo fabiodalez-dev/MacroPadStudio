@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-i",            # split / cut selection
+         "cmd-z",            # undo
+         "cmd-shift-z"]      # redo
+    knobs:
+      - ccw: "left"          # move playhead / cursor backward
+        press: "space"       # play / pause
+        cw: "right"          # move playhead / cursor forward

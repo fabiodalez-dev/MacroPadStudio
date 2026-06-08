@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["cmd-z", "cmd-shift-r", "v"]   # Undo / Reset all develop settings / Convert to B&W
+    knobs:
+      - ccw: "left"                       # Previous photo
+        press: "y"                        # Before/After left-right
+        cw: "right"                       # Next photo

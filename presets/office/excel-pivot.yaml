@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["cmd-shift-f5", "alt-f5", "cmd-z"]   # select entire pivot, refresh pivot, undo
+    knobs:
+      - ccw: "shift-tab"   # move to previous field in pivot
+        press: "alt-f5"    # refresh pivot table
+        cw: "tab"          # move to next field in pivot

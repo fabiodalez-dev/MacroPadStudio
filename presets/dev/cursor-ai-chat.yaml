@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-l",         # open AI chat panel
+         "cmd-k",         # open inline edit prompt
+         "cmd-shift-l"]   # add selection to chat context
+    knobs:
+      - ccw: "cmd-z"      # undo last AI-applied change
+        press: "escape"   # dismiss / close AI panel
+        cw: "cmd-shift-z" # redo

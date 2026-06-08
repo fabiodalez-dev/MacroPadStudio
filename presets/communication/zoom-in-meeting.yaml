@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-shift-a", "cmd-shift-v", "cmd-shift-s"]  # toggle mute / toggle video / start-stop share
+    knobs:
+      - ccw: "volumedown"   # decrease system volume
+        press: "mute"       # toggle speaker mute
+        cw: "volumeup"      # increase system volume

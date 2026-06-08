@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["ctrl-home", "ctrl-end", "ctrl-f"]   # go to first cell, go to last used cell, find
+    knobs:
+      - ccw: "ctrl-left"      # jump one block left
+        press: "ctrl-g"       # go to cell dialog
+        cw: "ctrl-right"      # jump one block right

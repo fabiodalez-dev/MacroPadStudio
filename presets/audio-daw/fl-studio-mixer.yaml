@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["f9",               # show/hide mixer
+         "m",                # mute selected track
+         "space"]            # play / stop
+    knobs:
+      - ccw: "wheeldown"     # scroll mixer channels left
+        press: "f9"          # toggle mixer window
+        cw: "wheelup"        # scroll mixer channels right

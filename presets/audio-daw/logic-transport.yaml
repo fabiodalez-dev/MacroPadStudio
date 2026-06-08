@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["space",             # play / stop
+         "enter",             # go to beginning (return to zero)
+         "cmd-u"]             # toggle cycle / loop region on/off
+    knobs:
+      - ccw: "left"           # move playhead backward
+        press: "enter"        # return to beginning
+        cw: "right"           # move playhead forward

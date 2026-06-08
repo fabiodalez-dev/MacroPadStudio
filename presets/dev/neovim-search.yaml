@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["ctrl-8",        # search for word under cursor (like *)
+         "n",             # go to next search match
+         "shift-n"]       # go to previous search match
+    knobs:
+      - ccw: "shift-n"   # previous search match
+        press: "escape"  # clear search highlight (:noh equivalent)
+        cw: "n"          # next search match

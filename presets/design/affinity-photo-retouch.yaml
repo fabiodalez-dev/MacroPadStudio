@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-j",  "cmd-shift-j",  "cmd-z"]       # Duplicate layer / New live filter layer / Undo
+    knobs:
+      - ccw: "leftbracket"    # decrease brush size
+        press: "cmd-shift-n"  # new pixel layer
+        cw: "rightbracket"    # increase brush size

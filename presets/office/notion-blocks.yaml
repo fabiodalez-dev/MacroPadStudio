@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["cmd-shift-h", "cmd-shift-0", "cmd-d"]   # heading block, text block, duplicate block
+    knobs:
+      - ccw: "cmd-shift-up"     # move block up
+        press: "cmd-slash"      # open block type menu
+        cw: "cmd-shift-down"    # move block down

@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["alt-s", "shift-s", "ctrl-d"]   # Add serial node / add parallel node / toggle node bypass
+    knobs:
+      - ccw: "shift-left"  # Select previous node in node graph
+        press: "alt-s"     # Add serial node
+        cw: "shift-right"  # Select next node in node graph

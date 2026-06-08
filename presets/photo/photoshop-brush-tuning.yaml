@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["b",            "opt-rightbracket", "opt-leftbracket"]  # Brush tool / Increase hardness / Decrease hardness
+    knobs:
+      - ccw: "leftbracket"   # decrease brush size
+        press: "f5"           # open Brush Settings panel
+        cw: "rightbracket"   # increase brush size

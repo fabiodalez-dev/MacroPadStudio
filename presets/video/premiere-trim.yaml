@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["q",            # trim out point of previous clip to playhead (ripple trim in)
+         "w",            # trim in point of next clip to playhead (ripple trim out)
+         "t"]            # select trim tool
+    knobs:
+      - ccw: "left"      # nudge trim one frame left
+        press: "space"   # play / pause to review trim
+        cw: "right"      # nudge trim one frame right

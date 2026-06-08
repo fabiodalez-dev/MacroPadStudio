@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["shift-home", "shift-end", "cmd-z"]   # Go to previous keyframe / go to next keyframe / undo last keyframe change
+    knobs:
+      - ccw: "left"        # Step back one frame on keyframe timeline
+        press: "k"         # Pause / stop playback
+        cw: "right"        # Step forward one frame on keyframe timeline

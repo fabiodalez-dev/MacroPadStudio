@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["cmd-m", "cmd-alt-m", "cmd-shift-slash"]  # Add to render queue, Add to Media Encoder queue, Open render queue panel
+    knobs:
+      - ccw: "pagedown"     # Previous frame (review output)
+        press: "numpad0"    # Start RAM preview
+        cw: "pageup"        # Next frame (review output)

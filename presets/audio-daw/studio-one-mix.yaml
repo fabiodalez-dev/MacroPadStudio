@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["f3",               # show/hide console (mixer)
+         "m",                # mute selected channel
+         "s"]                # solo selected channel
+    knobs:
+      - ccw: "wheeldown"     # scroll console channels left
+        press: "f3"          # toggle console window
+        cw: "wheelup"        # scroll console channels right

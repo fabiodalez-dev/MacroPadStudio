@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["cmd-shift-e", "ctrl-shift-e", "cmd-shift-c"]   # track changes toggle, accept change, add comment
+    knobs:
+      - ccw: "cmd-shift-leftbracket"    # previous tracked change / comment
+        press: "cmd-shift-e"           # toggle track changes
+        cw: "cmd-shift-rightbracket"   # next tracked change / comment

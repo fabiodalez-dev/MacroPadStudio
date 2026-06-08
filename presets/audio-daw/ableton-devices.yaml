@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-alt-b",        # toggle browser panel
+         "cmd-alt-p",        # toggle plug-in panel
+         "cmd-z"]            # undo last parameter change
+    knobs:
+      - ccw: "wheeldown"     # scroll browser / device list down
+        press: "enter"       # load selected device / preset
+        cw: "wheelup"        # scroll browser / device list up

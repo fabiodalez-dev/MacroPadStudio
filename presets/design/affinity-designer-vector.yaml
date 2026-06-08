@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-g",  "cmd-shift-g",  "cmd-z"]       # Group / Ungroup / Undo
+    knobs:
+      - ccw: "cmd-minus"    # zoom out
+        press: "cmd-0"      # fit page in window
+        cw: "cmd-equal"     # zoom in

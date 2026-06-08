@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-r", "cmd-shift-r", "cmd-b"]   # render active view | render to picture viewer | render settings
+    knobs:
+      - ccw: "wheeldown"  # zoom out in picture viewer
+        press: "h"        # fit render result in view
+        cw: "wheelup"     # zoom in in picture viewer

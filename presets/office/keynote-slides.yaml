@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["cmd-shift-n", "cmd-d", "cmd-shift-v"]   # new slide, duplicate slide, paste style
+    knobs:
+      - ccw: "cmd-shift-up"     # move slide earlier in deck
+        press: "cmd-d"          # duplicate slide
+        cw: "cmd-shift-down"    # move slide later in deck

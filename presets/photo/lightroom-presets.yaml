@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["cmd-z", "cmd-shift-r", "y"]   # Undo preset / Reset all develop settings / Before/After
+    knobs:
+      - ccw: "left"                       # Previous photo
+        press: "space"                    # Toggle loupe/grid
+        cw: "right"                       # Next photo

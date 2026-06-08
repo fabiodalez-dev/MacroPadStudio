@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["shift-z", "ctrl-shift-h", "ctrl-shift-w"]   # Zoom to fit viewer / show/hide histogram / show/hide waveform
+    knobs:
+      - ccw: "wheeldown"   # Scroll scope display down / decrease scope brightness
+        press: "shift-z"   # Zoom to fit color page viewer
+        cw: "wheelup"      # Scroll scope display up / increase scope brightness

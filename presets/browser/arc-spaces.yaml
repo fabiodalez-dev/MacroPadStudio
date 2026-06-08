@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-1",             # switch to Space 1
+         "cmd-2",             # switch to Space 2
+         "cmd-3"]             # switch to Space 3
+    knobs:
+      - ccw: "ctrl-shift-tab"     # cycle to previous space
+        press: "cmd-s"            # save (archive current tab / note)
+        cw: "ctrl-tab"            # cycle to next space

@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-1",        "cmd-2",        "cmd-3"]        # Red channel / Green channel / Blue channel
+    knobs:
+      - ccw: "cmd-minus"   # zoom out
+        press: "cmd-grave"  # return to composite channel (cmd-~)
+        cw: "cmd-equal"     # zoom in

@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-shift-alt-e",  "cmd-shift-e",  "cmd-z"]       # Export persona / Export slices / Undo
+    knobs:
+      - ccw: "cmd-minus"    # zoom out
+        press: "cmd-0"      # fit page in window
+        cw: "cmd-equal"     # zoom in

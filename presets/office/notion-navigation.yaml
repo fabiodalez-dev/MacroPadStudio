@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["cmd-shift-e", "cmd-p", "cmd-u"]   # toggle sidebar, quick search, go to parent page
+    knobs:
+      - ccw: "cmd-leftbracket"    # navigate back
+        press: "cmd-p"            # quick search / open page
+        cw: "cmd-rightbracket"    # navigate forward

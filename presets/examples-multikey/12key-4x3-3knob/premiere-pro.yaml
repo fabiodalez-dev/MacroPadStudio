@@ -1,0 +1,26 @@
+model: ch57x
+orientation: normal
+rows: 4
+columns: 3
+knobs: 3
+
+# Adobe Premiere Pro shortcuts for macOS — 12-key 4x3 + 3 knobs
+# Demonstrates a key SEQUENCE: ripple trim out then close gap (q, ctrl-shift-delete)
+# Knob 1: jog timeline  |  Knob 2: zoom timeline  |  Knob 3: audio gain proxy (scroll)
+
+layers:
+  - buttons:
+      - ["space",          "cmd-z",        "cmd-shift-z"]   # Play/Pause  / Undo  / Redo
+      - ["c",              "v",            "b"]             # Razor (Cut) tool  / Selection tool  / Ripple edit tool
+      - ["q",              "w",            "q,ctrl-shift-delete"]  # Ripple trim in  / Ripple trim out  / Trim out + close gap (sequence)
+      - ["cmd-m",          "cmd-shift-e",  "ctrl-shift-f"]  # Export Media  / Export frame  / Find in panel
+    knobs:
+      - ccw: "left"        # step one frame backward (j-k-l playback)
+        press: "space"     # play / pause
+        cw: "right"        # step one frame forward
+      - ccw: "minus"       # zoom out timeline (minus key)
+        press: "backslash" # fit sequence in timeline window
+        cw: "equal"        # zoom in timeline (equals key)
+      - ccw: "wheelup"     # scroll audio level dial in Effect Controls
+        press: "a"         # select track forward tool
+        cw: "wheeldown"    # scroll audio level dial down

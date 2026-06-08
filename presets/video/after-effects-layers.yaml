@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["cmd-shift-alt-e", "cmd-d", "cmd-shift-c"]  # Pre-compose, Duplicate layer, New solid
+    knobs:
+      - ccw: "minus"        # Zoom out timeline
+        press: "cmd-shift-alt-e"  # Pre-compose selected layers
+        cw: "equal"          # Zoom in timeline

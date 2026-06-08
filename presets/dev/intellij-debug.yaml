@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-f8",        # toggle breakpoint
+         "f9",            # resume program
+         "shift-f9"]      # run in debug mode
+    knobs:
+      - ccw: "f7"         # step into
+        press: "f9"       # resume program
+        cw: "f8"          # step over

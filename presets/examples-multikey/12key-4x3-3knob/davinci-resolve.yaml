@@ -1,0 +1,26 @@
+model: ch57x
+orientation: normal
+rows: 4
+columns: 3
+knobs: 3
+
+# DaVinci Resolve full-workflow shortcuts for macOS — 12-key 4x3 + 3 knobs
+# Knob 1: playhead scrub  |  Knob 2: timeline zoom  |  Knob 3: clip audio level proxy
+# Row 1: transport  |  Row 2: edit tools  |  Row 3: page navigation  |  Row 4: export
+
+layers:
+  - buttons:
+      - ["space",          "j",            "l"]            # Play/Pause  / Play reverse  / Play forward
+      - ["cmd-b",          "delete",       "cmd-z"]        # Blade  / Ripple delete  / Undo
+      - ["cmd-shift-1",    "cmd-shift-2",  "cmd-shift-3"]  # Go to Media page  / Cut page  / Edit page
+      - ["cmd-shift-4",    "cmd-e",        "cmd-shift-z"]  # Go to Color page  / Export  / Redo
+    knobs:
+      - ccw: "left"        # step one frame backward
+        press: "space"     # play / pause
+        cw: "right"        # step one frame forward
+      - ccw: "ctrl-minus"  # zoom timeline out
+        press: "cmd-d"     # disable / enable selected clip
+        cw: "ctrl-equal"   # zoom timeline in
+      - ccw: "wheelup"     # scroll clip audio level up (in inspector)
+        press: "cmd-shift-a"  # select all clips in track
+        cw: "wheeldown"    # scroll clip audio level down

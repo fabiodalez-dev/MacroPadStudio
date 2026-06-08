@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["c", "up", "down"]   # Enter Compare view / Promote candidate to select / Swap select and candidate
+    knobs:
+      - ccw: "left"            # Step to previous pair
+        press: "g"             # Return to Grid view
+        cw: "right"            # Step to next pair

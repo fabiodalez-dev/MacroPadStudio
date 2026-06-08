@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["space",            # play / stop playlist
+         "cmd-z",            # undo
+         "cmd-shift-z"]      # redo
+    knobs:
+      - ccw: "wheeldown"     # scroll playlist left (zoom out)
+        press: "space"       # play / pause
+        cw: "wheelup"        # scroll playlist right (zoom in)

@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-backslash",  # toggle breakpoint at current line
+         "cmd-y",          # continue / pause execution
+         "f6"]             # step over
+    knobs:
+      - ccw: "f7"          # step into
+        press: "cmd-y"     # continue execution
+        cw: "f8"           # step out

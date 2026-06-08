@@ -1,0 +1,34 @@
+model: ch57x
+orientation: normal
+rows: 3
+columns: 3
+knobs: 2
+
+# DaVinci Resolve shortcuts for macOS — 9-key 3x3 + 2 knobs
+# Knob 1: scrub timeline frame-by-frame  |  Knob 2: scroll timeline zoom
+# Layer 1: Edit page  |  Layer 2: Color page
+
+layers:
+  - buttons:
+      - ["space",          "cmd-z",       "cmd-shift-z"]  # Play/Pause  / Undo  / Redo
+      - ["cmd-b",          "cmd-shift-b", "delete"]       # Blade  / Blade all tracks  / Ripple delete
+      - ["cmd-d",          "j",           "l"]            # Disable clip  / Play reverse  / Play forward
+    knobs:
+      - ccw: "left"        # step one frame backward
+        press: "space"     # play / pause
+        cw: "right"        # step one frame forward
+      - ccw: "wheelup"     # scroll / zoom timeline in
+        press: "cmd-d"     # toggle disable selected clip
+        cw: "wheeldown"    # scroll / zoom timeline out
+
+  - buttons:
+      - ["cmd-z",          "shift-h",     "shift-s"]      # Undo  / Highlight toggle  / Show curves
+      - ["alt-s",          "ctrl-h",      "shift-c"]      # Auto-color  / Hue vs hue  / Color picker
+      - ["cmd-e",          "cmd-shift-e", "ctrl-d"]       # Export  / Quick export  / Flag clip
+    knobs:
+      - ccw: "left"        # previous node in node graph
+        press: "alt-s"     # auto-balance color (Auto Color)
+        cw: "right"        # next node in node graph
+      - ccw: "wheelup"     # increase lifted gain (proxy via scroll in viewer)
+        press: "shift-h"   # toggle highlight / parade display
+        cw: "wheeldown"    # decrease lifted gain

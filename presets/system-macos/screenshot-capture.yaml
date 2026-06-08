@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-shift-3",  "cmd-shift-4",  "cmd-shift-5"]  # capture full screen / capture selection / screenshot toolbar
+    knobs:
+      - ccw:   "cmd-shift-4"    # area capture (ccw = precise)
+        press: "cmd-shift-3"    # instant full-screen capture
+        cw:    "cmd-shift-5"    # open screenshot toolbar

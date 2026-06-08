@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["a",                 # toggle automation view on/off
+         "cmd-shift-a",       # delete all automation on selected track
+         "cmd-z"]             # undo last automation change
+    knobs:
+      - ccw: "left"           # move playhead left to adjust automation point
+        press: "a"            # toggle automation view
+        cw: "right"           # move playhead right to adjust automation point

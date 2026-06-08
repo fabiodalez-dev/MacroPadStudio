@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-c",        "cmd-v",        "cmd-x"]        # copy / paste / cut
+    knobs:
+      - ccw:   "cmd-z"        # undo last action
+        press: "cmd-shift-v"  # paste and match style
+        cw:    "cmd-shift-z"  # redo last undone action

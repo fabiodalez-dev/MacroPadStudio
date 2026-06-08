@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["cmd-z", "cmd-u", "cmd-shift-u"]   # Undo / Auto tone / Auto white balance
+    knobs:
+      - ccw: "wheeldown"                     # Decrease active slider value
+        press: "tab"                          # Show/hide panels
+        cw: "wheelup"                         # Increase active slider value

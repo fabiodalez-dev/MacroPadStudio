@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["r", "s", "p"]  # Reveal Rotation, reveal Scale, reveal Position in timeline
+    knobs:
+      - ccw: "minus"      # Zoom out comp panel
+        press: "cmd-alt-f" # Fit to comp window
+        cw: "equal"        # Zoom in comp panel

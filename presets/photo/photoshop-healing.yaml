@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["j",            "s",            "cmd-z"]        # Healing Brush / Clone Stamp / Undo
+    knobs:
+      - ccw: "leftbracket"   # decrease brush size
+        press: "j"            # cycle healing tools (Spot Heal / Heal / Patch)
+        cw: "rightbracket"   # increase brush size

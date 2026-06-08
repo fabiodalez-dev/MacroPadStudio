@@ -1,0 +1,34 @@
+model: ch57x
+orientation: normal
+rows: 3
+columns: 3
+knobs: 2
+
+# Logic Pro shortcuts for macOS — 9-key 3x3 + 2 knobs
+# Knob 1: nudge playhead  |  Knob 2: master volume via media keys
+# Layer 1: Record / Edit  |  Layer 2: Mix / Automation
+
+layers:
+  - buttons:
+      - ["r",              "space",       "cmd-z"]        # Record arm  / Play-stop  / Undo
+      - ["cmd-t",          "cmd-e",       "cmd-j"]        # Split at playhead  / Toggle editors  / Join regions
+      - ["cmd-u",          "cmd-shift-u", "cmd-1"]        # Cycle mode on  / Cycle mode off  / Arrange window
+    knobs:
+      - ccw: "left"        # move playhead backward (comma key in Logic)
+        press: "space"     # play / stop
+        cw: "right"        # move playhead forward (period key in Logic)
+      - ccw: "volumedown"  # decrease master output volume
+        press: "mute"      # mute / unmute master output
+        cw: "volumeup"     # increase master output volume
+
+  - buttons:
+      - ["cmd-z",          "cmd-shift-z", "a"]            # Undo  / Redo  / Toggle Automation
+      - ["cmd-opt-down",   "cmd-opt-up",  "x"]            # Volume automation down  / up  / Mixer window
+      - ["cmd-9",          "cmd-0",       "cmd-shift-x"]  # Audio MIDI Setup  / Piano Roll  / Score editor
+    knobs:
+      - ccw: "left"        # nudge selected region left
+        press: "a"         # toggle automation view
+        cw: "right"        # nudge selected region right
+      - ccw: "wheelup"     # scroll mix channel strip up (in Mixer)
+        press: "x"         # toggle Mixer window
+        cw: "wheeldown"    # scroll mix channel strip down

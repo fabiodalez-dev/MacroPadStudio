@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-delete",   "cmd-shift-n",  "enter"]        # move to trash / new folder / rename selected item
+    knobs:
+      - ccw:   "cmd-leftbracket"    # go back in folder history
+        press: "cmd-i"              # get info for selected item
+        cw:    "cmd-rightbracket"   # go forward in folder history

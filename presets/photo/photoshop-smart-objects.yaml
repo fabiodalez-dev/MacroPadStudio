@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-shift-d",  "cmd-z",        "cmd-s"]        # Edit Smart Object contents / Undo / Save
+    knobs:
+      - ccw: "cmd-minus"   # zoom out
+        press: "cmd-0"      # fit on screen
+        cw: "cmd-equal"     # zoom in

@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["space",            # play / stop all clips
+         "cmd-shift-l",      # stop all clip slots
+         "cmd-z"]            # undo last action
+    knobs:
+      - ccw: "wheeldown"     # scroll session view down
+        press: "space"       # play / stop
+        cw: "wheelup"        # scroll session view up

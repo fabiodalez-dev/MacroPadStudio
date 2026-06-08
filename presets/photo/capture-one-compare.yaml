@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-alt-e", "space",     "cmd-z"]        # Set Compare image / Toggle full-screen / Undo
+    knobs:
+      - ccw: "left"   # previous image in browser
+        press: "cmd-0" # fit image to window
+        cw: "right"   # next image in browser

@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["k",                  # add keyframe at current time
+         "cmd-z",              # undo last keyframe change
+         "cmd-shift-z"]        # redo
+    knobs:
+      - ccw: "left"            # step one frame backward
+        press: "space"         # play / pause
+        cw: "right"            # step one frame forward

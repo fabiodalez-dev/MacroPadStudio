@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-a",            # select all notes
+         "cmd-shift-m",      # fold to display active notes only
+         "cmd-z"]            # undo last edit
+    knobs:
+      - ccw: "ctrl-minus"    # zoom out timeline horizontally
+        press: "space"       # play / stop
+        cw: "ctrl-equal"     # zoom in timeline horizontally

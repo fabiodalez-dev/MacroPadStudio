@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["ctrl-i",        # re-indent / auto-format selection
+         "cmd-slash",     # toggle line comment
+         "cmd-opt-leftbracket"]  # fold code block
+    knobs:
+      - ccw: "ctrl-6,up"  # previous method in file (structure list up)
+        press: "ctrl-6"    # open structure/jump bar
+        cw: "ctrl-6,down"  # next method in file (structure list down)

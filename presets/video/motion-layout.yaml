@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-1",              # show File browser panel
+         "cmd-2",              # show Library panel
+         "cmd-4"]              # show Inspector panel
+    knobs:
+      - ccw: "left"            # step one frame backward
+        press: "space"         # play / pause
+        cw: "right"            # step one frame forward

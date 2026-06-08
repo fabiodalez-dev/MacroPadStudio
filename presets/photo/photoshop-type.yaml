@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["t",            "cmd-shift-l",  "cmd-enter"]    # Type tool / Left align / Commit text
+    knobs:
+      - ccw: "cmd-shift-comma"   # decrease font size
+        press: "cmd-shift-c"     # center align text
+        cw: "cmd-shift-dot"      # increase font size

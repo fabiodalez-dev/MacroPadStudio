@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["cmd-shift-n", "cmd-shift-i", "f"]  # New mask, Invert mask, Fit to frame / toggle mask view
+    knobs:
+      - ccw: "minus"       # Zoom out composition view
+        press: "cmd-shift-h" # Toggle mask visibility (View > Show Layer Controls)
+        cw: "equal"          # Zoom in composition view

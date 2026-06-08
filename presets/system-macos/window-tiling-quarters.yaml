@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["ctrl-alt-left",  "ctrl-alt-right",  "ctrl-alt-down"]   # tile window to top-left quarter / top-right quarter / bottom half
+    knobs:
+      - ccw:   "ctrl-left"    # switch to previous Space
+        press: "ctrl-up"      # open Mission Control to drag window to space
+        cw:    "ctrl-right"   # switch to next Space

@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["cmd-shift-u", "cmd-t", "ctrl-shift-enter"]   # expand/collapse formula bar, toggle absolute reference, enter array formula
+    knobs:
+      - ccw: "f2"            # enter cell edit mode (step back through dependents)
+        press: "cmd-shift-u" # toggle formula bar expand
+        cw: "tab"            # confirm and move right

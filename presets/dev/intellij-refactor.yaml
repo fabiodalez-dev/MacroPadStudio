@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["shift-f6",      # rename symbol
+         "cmd-opt-m",     # extract method
+         "cmd-opt-v"]     # extract variable
+    knobs:
+      - ccw: "cmd-z"      # undo
+        press: "ctrl-t"   # open refactor this menu
+        cw: "cmd-shift-z" # redo

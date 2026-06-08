@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["c", "cmd-z", "cmd-shift-z"]   # make editable | undo | redo
+    knobs:
+      - ccw: "wheeldown"  # zoom out viewport
+        press: "h"        # fit all objects in view
+        cw: "wheelup"     # zoom in viewport

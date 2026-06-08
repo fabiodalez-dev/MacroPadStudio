@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-shift-s",      # toggle sends on/off
+         "cmd-shift-t",      # toggle returns on/off
+         "cmd-alt-m"]        # toggle mixer section visibility
+    knobs:
+      - ccw: "volumedown"    # decrease master output volume
+        press: "mute"        # toggle mute on selected track
+        cw: "volumeup"       # increase master output volume

@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["space",            # play / stop pattern
+         "r",                # toggle record
+         "cmd-z"]            # undo
+    knobs:
+      - ccw: "wheeldown"     # scroll pattern view left
+        press: "space"       # play / pause pattern
+        cw: "wheelup"        # scroll pattern view right

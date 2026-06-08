@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["cmd-f", "cmd-g", "ctrl-home"]   # find, go to page/line, go to document start
+    knobs:
+      - ccw: "cmd-pageup"    # previous page
+        press: "cmd-g"       # go to dialog
+        cw: "cmd-pagedown"   # next page

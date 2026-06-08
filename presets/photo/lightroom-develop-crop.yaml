@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["r", "x", "enter"]   # Enter/exit crop / Flip crop orientation / Apply crop
+    knobs:
+      - ccw: "leftbracket"     # Rotate crop counterclockwise (straighten)
+        press: "cmd-shift-r"   # Reset crop
+        cw: "rightbracket"     # Rotate crop clockwise (straighten)

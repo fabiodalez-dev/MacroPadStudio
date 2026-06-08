@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["k", "cmd-z", "h"]   # Toggle Adjustment Brush / Undo / Show/hide local adjustment pins
+    knobs:
+      - ccw: "leftbracket"     # Decrease brush size
+        press: "o"             # Show/hide mask overlay
+        cw: "rightbracket"     # Increase brush size

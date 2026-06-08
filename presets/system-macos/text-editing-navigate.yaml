@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-left",     "cmd-right",    "cmd-up"]       # jump to line start / jump to line end / jump to document start
+    knobs:
+      - ccw:   "cmd-left"     # jump to beginning of line
+        press: "cmd-a"        # select all text
+        cw:    "cmd-right"    # jump to end of line

@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-shift-i",  "cmd-alt-i",  "cmd-z"]       # Invert selection / Refine selection / Undo
+    knobs:
+      - ccw: "leftbracket"    # decrease brush size
+        press: "x"            # swap foreground/background colour
+        cw: "rightbracket"    # increase brush size

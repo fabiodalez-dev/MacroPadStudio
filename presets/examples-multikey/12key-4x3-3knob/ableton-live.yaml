@@ -1,0 +1,42 @@
+model: ch57x
+orientation: normal
+rows: 4
+columns: 3
+knobs: 3
+
+# Ableton Live shortcuts for macOS — 12-key 4x3 + 3 knobs
+# Knob 1: jog/scrub arrangement  |  Knob 2: master volume  |  Knob 3: clip gain scroll
+# Layer 1: Arrangement view  |  Layer 2: Session view
+
+layers:
+  - buttons:
+      - ["space",          "cmd-z",        "cmd-shift-z"]   # Play/Stop  / Undo  / Redo
+      - ["f9",             "cmd-shift-r",  "delete"]        # Launch clip (F9)  / Capture MIDI  / Delete selection
+      - ["tab",            "cmd-alt-l",    "cmd-shift-m"]   # Switch Arrangement/Session  / Loop on/off  / MIDI map mode
+      - ["cmd-e",          "cmd-shift-e",  "cmd-r"]         # Split at selection  / Consolidate  / Rename clip
+    knobs:
+      - ccw: "left"        # move playhead / position backward
+        press: "space"     # play / stop
+        cw: "right"        # move playhead / position forward
+      - ccw: "volumedown"  # decrease master volume (system media key)
+        press: "mute"      # mute / unmute master output
+        cw: "volumeup"     # increase master volume
+      - ccw: "wheelup"     # scroll clip gain dial upward in Detail View
+        press: "cmd-alt-l" # toggle loop on selected clip
+        cw: "wheeldown"    # scroll clip gain dial downward
+
+  - buttons:
+      - ["space",          "f9",           "cmd-z"]         # Global play  / Launch clip  / Undo
+      - ["ctrl-alt-i",     "ctrl-alt-u",   "shift-tab"]     # Insert MIDI track  / Insert audio track  / Prev device
+      - ["tab",            "cmd-4",        "cmd-5"]         # Back to Arrangement  / Quantize  / Re-Enable Automation
+      - ["cmd-g",          "cmd-shift-g",  "cmd-opt-g"]     # Group tracks  / Ungroup  / Group into rack
+    knobs:
+      - ccw: "left"        # scroll session clip slots up
+        press: "f9"        # launch selected clip slot
+        cw: "right"        # scroll session clip slots down
+      - ccw: "volumedown"  # decrease master volume
+        press: "mute"      # mute master
+        cw: "volumeup"     # increase master volume
+      - ccw: "wheelup"     # scroll send knob A upward
+        press: "cmd-4"     # quantize selected notes / clips
+        cw: "wheeldown"    # scroll send knob A downward

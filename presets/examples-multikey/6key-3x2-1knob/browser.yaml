@@ -1,0 +1,19 @@
+model: ch57x
+orientation: normal
+rows: 3
+columns: 2
+knobs: 1
+
+# Web browser shortcuts for Safari / Chrome / Firefox on macOS — 6-key 3x2 + 1 knob
+# Demonstrates a key SEQUENCE: open DevTools then focus the Console panel (cmd-alt-i, cmd-shift-j)
+# Knob scrolls the page naturally.
+
+layers:
+  - buttons:
+      - ["cmd-t",          "cmd-w"]          # New tab  /  Close tab
+      - ["cmd-leftbracket","cmd-rightbracket"] # Navigate back  /  Navigate forward
+      - ["cmd-r",          "cmd-alt-i,cmd-shift-j"] # Reload  /  Open DevTools → Console (sequence)
+    knobs:
+      - ccw: "wheelup"    # scroll page up
+        press: "cmd-l"    # focus address / URL bar
+        cw: "wheeldown"   # scroll page down

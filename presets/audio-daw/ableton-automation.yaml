@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["a",                # toggle automation arm
+         "cmd-shift-a",      # show automation envelopes
+         "cmd-z"]            # undo last automation edit
+    knobs:
+      - ccw: "left"          # move playhead backward through automation
+        press: "space"       # play / stop
+        cw: "right"          # move playhead forward through automation

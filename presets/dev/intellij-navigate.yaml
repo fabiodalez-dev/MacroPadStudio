@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-b",         # go to declaration / definition
+         "opt-cmd-b",     # go to implementation
+         "cmd-opt-left"]  # navigate back
+    knobs:
+      - ccw: "cmd-opt-left"   # navigate back
+        press: "shift-shift"   # search everywhere
+        cw: "cmd-opt-right"    # navigate forward

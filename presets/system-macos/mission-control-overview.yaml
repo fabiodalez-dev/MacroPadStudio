@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["ctrl-up",      "ctrl-down",    "cmd-tab"]      # open Mission Control / show App Expose / App Switcher
+    knobs:
+      - ccw:   "ctrl-left"    # switch to previous Space
+        press: "ctrl-up"      # toggle Mission Control overview
+        cw:    "ctrl-right"   # switch to next Space

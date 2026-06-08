@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-p",             # open/show Score editor
+         "cmd-a",             # select all notes in score
+         "cmd-z"]             # undo last score edit
+    knobs:
+      - ccw: "wheeldown"      # scroll score down (lower staves)
+        press: "space"        # play / stop
+        cw: "wheelup"         # scroll score up (higher staves)

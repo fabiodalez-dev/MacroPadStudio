@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-shift-e", "cmd-d",   "cmd-alt-e"]    # Export / Deselect all / Export original
+    knobs:
+      - ccw: "left"   # previous image in browser
+        press: "space" # toggle full-screen viewer
+        cw: "right"   # next image in browser

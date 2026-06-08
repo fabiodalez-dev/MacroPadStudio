@@ -2,10 +2,12 @@
 """
 Macro Pad Studio
 
-A modern desktop manager for the CH57x 3-key + 1-knob macro pad. It lets you
-browse ready-made presets, apply them to the device with the native macOS
-admin dialog, and create or edit your own presets with a built-in shortcut
-recorder.
+A modern desktop manager for the CH57x family of macro pads. It supports every
+device geometry (3x1 up to 5x3, with 0 to 3 knobs), three switchable layers,
+key sequences with delays, mouse / media actions, and LED backlight control on
+the LED-capable variants. It lets you browse ready-made presets, apply them to
+the device with the native macOS admin dialog, and create or edit your own
+presets with a built-in shortcut recorder.
 
 Requirements: customtkinter, Pillow, pyyaml.
 """
@@ -68,9 +70,17 @@ try:
 except ImportError:
     _HAS_PIL = False
 
-# Local module that converts key events into ch57x tokens.
+# Local modules.
 sys.path.insert(0, APP_DIR)
-from keymap import event_to_token, VALID_TOKEN_KEYS, MODIFIER_TOKENS  # noqa: E402
+from keymap import (  # noqa: E402
+    event_to_token,
+    VALID_TOKEN_KEYS,
+    MODIFIER_TOKENS,
+    MOUSE_TOKENS,
+    MEDIA_TOKENS,
+    EXTENDED_VOCABULARY,
+)
+import devices  # noqa: E402
 
 # ---------------------------------------------------------------------------
 # Theme
@@ -101,10 +111,15 @@ COMMON_TOKENS = [
 
 
 def build_token_choices():
-    """Return an ordered, de-duplicated list of tokens for the dropdowns."""
+    """Return an ordered, de-duplicated list of tokens for the dropdowns.
+
+    Order: common shortcuts, then mouse / wheel actions, then media keys, then
+    the full key vocabulary, then bare modifier prefixes and a delay example.
+    """
     choices = []
     seen = set()
-    for group in (COMMON_TOKENS, VALID_TOKEN_KEYS):
+    for group in (COMMON_TOKENS, MOUSE_TOKENS, MEDIA_TOKENS,
+                  EXTENDED_VOCABULARY, VALID_TOKEN_KEYS):
         for tok in group:
             if tok not in seen:
                 seen.add(tok)
@@ -115,10 +130,24 @@ def build_token_choices():
         if label not in seen:
             seen.add(label)
             choices.append(label)
+    # A delay example so users discover the "<ms>" syntax from the dropdown.
+    if "<100>" not in seen:
+        choices.append("<100>")
     return choices
 
 
 TOKEN_CHOICES = build_token_choices()
+
+# Device dropdown labels, in profile order.
+DEVICE_LABELS = [p["label"] for p in devices.DEVICE_PROFILES]
+
+
+def _profile_for_label(label):
+    """Return the device profile matching a dropdown label, or None."""
+    for prof in devices.DEVICE_PROFILES:
+        if prof["label"] == label:
+            return prof
+    return None
 
 
 # ---------------------------------------------------------------------------
@@ -161,13 +190,37 @@ def list_categories():
 
 def parse_preset(path):
     """
-    Read a preset YAML and extract the three button tokens and the knob
-    ccw/press/cw tokens from the first layer. Returns a dict; missing values
-    fall back to an empty string.
+    Read a preset YAML and return a generic device description:
+
+        {
+            "model":       str | None,
+            "orientation": str,
+            "rows":        int,
+            "columns":     int,
+            "knobs":       int,
+            "layers": [
+                {
+                    "buttons": [[tok, tok, ...], ...],   # rows x columns grid
+                    "knobs":   [{"ccw","press","cw"}, ...],
+                },
+                ...
+            ],
+            "raw":   original parsed dict,
+            "error": str | None,
+        }
+
+    Backward compatible: an existing 3x1 single-layer preset (rows: 1,
+    columns: 3, one layer) is read with rows=1, columns=3, knobs=1 and a
+    single layer holding a 1x3 button grid plus one knob.
+
+    Button entries are normalised to a rows x columns grid of strings.
+    Sequences (commas) and delays ("<ms>") are kept verbatim as raw strings.
     """
     result = {
-        "buttons": ["", "", ""],
-        "ccw": "", "press": "", "cw": "",
+        "model": None,
+        "orientation": "normal",
+        "rows": 0, "columns": 0, "knobs": 0,
+        "layers": [],
         "raw": None, "error": None,
     }
     try:
@@ -182,52 +235,147 @@ def parse_preset(path):
         result["error"] = "Unexpected YAML structure."
         return result
 
-    layers = data.get("layers") or []
-    if not layers:
-        return result
-    layer = layers[0] or {}
+    geom = devices.geometry_of(data)
+    result["model"] = data.get("model")
+    result["orientation"] = str(data.get("orientation") or "normal")
+    result["rows"] = geom["rows"]
+    result["columns"] = geom["columns"]
+    result["knobs"] = geom["knobs"]
 
-    buttons = layer.get("buttons") or []
-    flat = []
-    for entry in buttons:
-        if isinstance(entry, list):
-            flat.extend(entry)
-        else:
-            flat.append(entry)
-    for i in range(3):
-        result["buttons"][i] = str(flat[i]) if i < len(flat) and flat[i] else ""
+    rows = result["rows"]
+    cols = result["columns"]
+    nknobs = result["knobs"]
 
-    knobs = layer.get("knobs") or []
-    if knobs:
-        knob = knobs[0] or {}
-        if isinstance(knob, dict):
-            result["ccw"] = str(knob.get("ccw", "") or "")
-            result["press"] = str(knob.get("press", "") or "")
-            result["cw"] = str(knob.get("cw", "") or "")
+    raw_layers = data.get("layers") or []
+    for raw_layer in raw_layers:
+        raw_layer = raw_layer or {}
+        grid = _normalise_button_grid(
+            raw_layer.get("buttons"), rows, cols)
+        knob_list = _normalise_knobs(raw_layer.get("knobs"), nknobs)
+        result["layers"].append({"buttons": grid, "knobs": knob_list})
+
+    if not result["layers"]:
+        # Empty preset: synthesise one blank layer so the editor has shape.
+        result["layers"].append({
+            "buttons": _blank_grid(rows, cols),
+            "knobs": [{"ccw": "", "press": "", "cw": ""}
+                      for _ in range(nknobs)],
+        })
+
     return result
 
 
-def build_yaml(buttons, ccw, press, cw):
-    """Compose the YAML text for a 3-key + 1-knob single-layer preset."""
-    def q(v):
-        v = (v or "").strip()
-        return '""' if not v else '"%s"' % v.replace('"', '\\"')
+def _blank_grid(rows, cols):
+    """Return an empty rows x columns grid of empty strings."""
+    rows = max(rows, 0)
+    cols = max(cols, 0)
+    return [["" for _ in range(cols)] for _ in range(rows)]
 
-    lines = [
-        "orientation: normal",
-        "rows: 1",
-        "columns: 3",
-        "knobs: 1",
-        "",
-        "layers:",
-        "  - buttons:",
-        "      - [%s, %s, %s]" % (q(buttons[0]), q(buttons[1]), q(buttons[2])),
-        "    knobs:",
-        "      - ccw: %s" % q(ccw),
-        "        press: %s" % q(press),
-        "        cw: %s" % q(cw),
-        "",
-    ]
+
+def _normalise_button_grid(buttons, rows, cols):
+    """
+    Turn an arbitrary 'buttons' YAML value into a rows x columns grid of
+    strings. Accepts either a list of row-lists, or a flat list (legacy 1x3
+    presets that wrote a single inline list still flatten correctly).
+    """
+    grid = _blank_grid(rows, cols)
+    if not isinstance(buttons, list):
+        return grid
+
+    # Detect whether this is already a grid (list of lists) or a flat list.
+    nested = any(isinstance(r, list) for r in buttons)
+    if nested:
+        for r, row in enumerate(buttons):
+            if r >= rows:
+                break
+            if not isinstance(row, list):
+                row = [row]
+            for c, val in enumerate(row):
+                if c >= cols:
+                    break
+                grid[r][c] = "" if val is None else str(val)
+    else:
+        # Flat list: fill row-major.
+        flat = ["" if v is None else str(v) for v in buttons]
+        idx = 0
+        for r in range(rows):
+            for c in range(cols):
+                if idx < len(flat):
+                    grid[r][c] = flat[idx]
+                idx += 1
+    return grid
+
+
+def _normalise_knobs(knobs, nknobs):
+    """Return a list of exactly nknobs {ccw,press,cw} dicts."""
+    out = []
+    src = knobs if isinstance(knobs, list) else []
+    for i in range(max(nknobs, 0)):
+        knob = src[i] if i < len(src) and isinstance(src[i], dict) else {}
+        out.append({
+            "ccw": str(knob.get("ccw", "") or ""),
+            "press": str(knob.get("press", "") or ""),
+            "cw": str(knob.get("cw", "") or ""),
+        })
+    return out
+
+
+def _q(v):
+    """Quote a token value for YAML, preserving commas / delays verbatim."""
+    v = (v or "").strip()
+    if not v:
+        return '""'
+    return '"%s"' % v.replace("\\", "\\\\").replace('"', '\\"')
+
+
+def build_yaml(rows, columns, knobs, layers, orientation="normal",
+               model="ch57x"):
+    """
+    Compose YAML text for an arbitrary geometry with N layers.
+
+    Parameters:
+        rows, columns, knobs : ints describing the geometry
+        layers : list of dicts, each:
+            {"buttons": rows x columns grid of token strings,
+             "knobs":   list of {"ccw","press","cw"} dicts}
+        orientation : one of normal|upsidedown|clockwise|counterclockwise
+        model : device model string (default "ch57x")
+
+    Sequences (comma-separated) and delays ("<ms>") inside the token strings
+    are preserved verbatim. Quoting is kept safe for the YAML parser.
+    """
+    lines = []
+    if model:
+        lines.append("model: %s" % model)
+    lines.append("orientation: %s" % (orientation or "normal"))
+    lines.append("rows: %d" % rows)
+    lines.append("columns: %d" % columns)
+    lines.append("knobs: %d" % knobs)
+    lines.append("")
+    lines.append("layers:")
+
+    for layer in layers:
+        grid = layer.get("buttons") or _blank_grid(rows, columns)
+        klist = layer.get("knobs") or []
+
+        lines.append("  - buttons:")
+        for r in range(rows):
+            row = grid[r] if r < len(grid) else ["" for _ in range(columns)]
+            cells = [_q(row[c] if c < len(row) else "")
+                     for c in range(columns)]
+            lines.append("      - [%s]" % ", ".join(cells))
+
+        # The backend requires the 'knobs' field even when there are none.
+        if knobs <= 0:
+            lines.append("    knobs: []")
+        else:
+            lines.append("    knobs:")
+            for i in range(knobs):
+                knob = klist[i] if i < len(klist) else {}
+                lines.append("      - ccw: %s" % _q(knob.get("ccw", "")))
+                lines.append("        press: %s" % _q(knob.get("press", "")))
+                lines.append("        cw: %s" % _q(knob.get("cw", "")))
+    lines.append("")
     return "\n".join(lines)
 
 
@@ -285,6 +433,41 @@ def apply_preset(path):
     if "User canceled" in err or "-128" in err:
         return False, "Upload canceled."
     return False, err or "Upload failed."
+
+
+def apply_led(mode, color=None):
+    """
+    Set the LED backlight mode (and optional color) through the same macOS
+    admin password dialog used by apply_preset. Returns (ok, message).
+
+    mode  : off|backlight|shock|shock2|press
+    color : red|orange|yellow|green|cyan|blue|purple|white (optional)
+    """
+    if not os.path.exists(TOOL):
+        return False, "ch57x-keyboard-tool not found at %s" % TOOL
+
+    args = [shlex.quote(TOOL), "led", shlex.quote(mode)]
+    if color:
+        args.append(shlex.quote(color))
+    shell_cmd = " ".join(args)
+    esc = shell_cmd.replace("\\", "\\\\").replace('"', '\\"')
+    applescript = 'do shell script "%s" with administrator privileges' % esc
+
+    try:
+        proc = subprocess.run(
+            ["osascript", "-e", applescript],
+            capture_output=True, text=True, timeout=60,
+        )
+    except Exception as exc:  # noqa: BLE001
+        return False, "LED error: %s" % exc
+
+    if proc.returncode == 0:
+        out = proc.stdout.strip()
+        return True, out or "LED updated."
+    err = (proc.stderr or proc.stdout or "").strip()
+    if "User canceled" in err or "-128" in err:
+        return False, "LED change canceled."
+    return False, err or "LED change failed."
 
 
 # ---------------------------------------------------------------------------
@@ -372,6 +555,17 @@ class MacroPadStudio(ctk.CTk):
         self._record_callback = None
         self._image_cache = {}
 
+        # Editor model state.
+        self._editor_rows = 1
+        self._editor_cols = 3
+        self._editor_knobs = 1
+        self._editor_layer_count = 3
+        self._editor_layers = []      # list of {"buttons":[[..]], "knobs":[..]}
+        self._editor_active_layer = 0
+        self._btn_field_widgets = []  # current layer button EditorFields
+        self._knob_field_widgets = []  # current layer knob EditorFields
+        self._detected_profile = None
+
         self.grid_columnconfigure(1, weight=1)
         self.grid_rowconfigure(0, weight=1)
 
@@ -380,6 +574,7 @@ class MacroPadStudio(ctk.CTk):
         self._build_statusbar()
 
         self.refresh_presets()
+        self.refresh_device_status()
         self._show_launcher()
 
         # Global key listener used by the recorder.
@@ -423,7 +618,7 @@ class MacroPadStudio(ctk.CTk):
             font=ctk.CTkFont(size=20, weight="bold"),
         ).pack(anchor="w", pady=(10, 0))
         ctk.CTkLabel(
-            header, text="CH57x · 3 keys + 1 knob",
+            header, text="CH57x macro pad manager",
             text_color=MUTED, font=ctk.CTkFont(size=12),
         ).pack(anchor="w")
 
@@ -497,6 +692,7 @@ class MacroPadStudio(ctk.CTk):
         wrap = ctk.CTkFrame(self.editor_view, fg_color=CARD_BG, corner_radius=16)
         wrap.grid(row=0, column=0, sticky="ew", padx=30, pady=24)
         wrap.grid_columnconfigure(0, weight=1)
+        self._editor_wrap = wrap
 
         ctk.CTkLabel(
             wrap, text="Edit preset",
@@ -506,11 +702,18 @@ class MacroPadStudio(ctk.CTk):
             wrap, text="Pick a token or record a shortcut for each control.",
             text_color=MUTED, font=ctk.CTkFont(size=13),
         )
-        self.editor_subtitle.grid(row=1, column=0, sticky="w", padx=24, pady=(0, 12))
+        self.editor_subtitle.grid(row=1, column=0, sticky="w", padx=24, pady=(0, 4))
 
-        # Name + category.
+        ctk.CTkLabel(
+            wrap,
+            text="Tip: enter a sequence with commas and delays, "
+                 "e.g.  a, b, <100>, cmd-c",
+            text_color="#6b7280", font=ctk.CTkFont(size=12),
+        ).grid(row=2, column=0, sticky="w", padx=24, pady=(0, 12))
+
+        # Name + category + device profile + orientation.
         meta = ctk.CTkFrame(wrap, fg_color="transparent")
-        meta.grid(row=2, column=0, sticky="ew", padx=24, pady=(0, 10))
+        meta.grid(row=3, column=0, sticky="ew", padx=24, pady=(0, 10))
         meta.grid_columnconfigure(1, weight=1)
 
         ctk.CTkLabel(meta, text="Name", width=110, anchor="w",
@@ -531,32 +734,111 @@ class MacroPadStudio(ctk.CTk):
         )
         self.editor_category_menu.grid(row=1, column=1, sticky="ew", pady=6)
 
-        # Buttons section.
+        ctk.CTkLabel(meta, text="Device", width=110, anchor="w",
+                     text_color=MUTED).grid(row=2, column=0, sticky="w", pady=6)
+        self.device_var = ctk.StringVar(value=DEVICE_LABELS[0])
+        self.device_menu = ctk.CTkOptionMenu(
+            meta, variable=self.device_var, values=DEVICE_LABELS,
+            command=self._on_device_change,
+            height=34, corner_radius=8, fg_color="#1c1d27",
+            button_color=ACCENT, button_hover_color=ACCENT_HOVER,
+        )
+        self.device_menu.grid(row=2, column=1, sticky="ew", pady=6)
+
+        ctk.CTkLabel(meta, text="Orientation", width=110, anchor="w",
+                     text_color=MUTED).grid(row=3, column=0, sticky="w", pady=6)
+        self.orientation_var = ctk.StringVar(value="normal")
+        ctk.CTkOptionMenu(
+            meta, variable=self.orientation_var,
+            values=["normal", "upsidedown", "clockwise", "counterclockwise"],
+            height=34, corner_radius=8, fg_color="#1c1d27",
+            button_color=ACCENT, button_hover_color=ACCENT_HOVER,
+        ).grid(row=3, column=1, sticky="ew", pady=6)
+
+        # Custom geometry row (only shown for the "custom" profile).
+        self.custom_geo = ctk.CTkFrame(wrap, fg_color="transparent")
+        self.custom_geo.grid(row=4, column=0, sticky="ew", padx=24, pady=(0, 4))
+        self.custom_geo.grid_columnconfigure((1, 3, 5), weight=1)
+        ctk.CTkLabel(self.custom_geo, text="Rows", text_color=MUTED).grid(
+            row=0, column=0, padx=(0, 6))
+        self.custom_rows = ctk.CTkOptionMenu(
+            self.custom_geo, values=[str(i) for i in range(1, 6)],
+            command=lambda _=None: self._rebuild_grid(),
+            width=70, height=30, fg_color="#1c1d27",
+            button_color=ACCENT, button_hover_color=ACCENT_HOVER)
+        self.custom_rows.set("3")
+        self.custom_rows.grid(row=0, column=1, padx=(0, 14))
+        ctk.CTkLabel(self.custom_geo, text="Columns", text_color=MUTED).grid(
+            row=0, column=2, padx=(0, 6))
+        self.custom_cols = ctk.CTkOptionMenu(
+            self.custom_geo, values=[str(i) for i in range(1, 6)],
+            command=lambda _=None: self._rebuild_grid(),
+            width=70, height=30, fg_color="#1c1d27",
+            button_color=ACCENT, button_hover_color=ACCENT_HOVER)
+        self.custom_cols.set("3")
+        self.custom_cols.grid(row=0, column=3, padx=(0, 14))
+        ctk.CTkLabel(self.custom_geo, text="Knobs", text_color=MUTED).grid(
+            row=0, column=4, padx=(0, 6))
+        self.custom_knobs = ctk.CTkOptionMenu(
+            self.custom_geo, values=[str(i) for i in range(0, 4)],
+            command=lambda _=None: self._rebuild_grid(),
+            width=70, height=30, fg_color="#1c1d27",
+            button_color=ACCENT, button_hover_color=ACCENT_HOVER)
+        self.custom_knobs.set("1")
+        self.custom_knobs.grid(row=0, column=5)
+        self.custom_geo.grid_remove()
+
+        # Layer tabs.
+        self.layer_tabs = ctk.CTkSegmentedButton(
+            wrap, values=["Layer 1"], command=self._on_layer_change,
+            selected_color=ACCENT, selected_hover_color=ACCENT_HOVER,
+        )
+        self.layer_tabs.set("Layer 1")
+        self.layer_tabs.grid(row=5, column=0, sticky="w", padx=24, pady=(8, 4))
+
+        # Dynamic grid container (rebuilt on device / layer change).
+        self.grid_container = ctk.CTkFrame(wrap, fg_color="transparent")
+        self.grid_container.grid(row=6, column=0, sticky="ew", padx=24)
+        self.grid_container.grid_columnconfigure(0, weight=1)
+
+        # LED panel (shown only for LED-capable profiles).
+        self.led_panel = ctk.CTkFrame(wrap, fg_color="#191b24",
+                                      corner_radius=12)
+        self.led_panel.grid(row=7, column=0, sticky="ew", padx=24, pady=(14, 4))
+        self.led_panel.grid_columnconfigure((1, 3), weight=1)
         ctk.CTkLabel(
-            wrap, text="Buttons", font=ctk.CTkFont(size=15, weight="bold"),
-        ).grid(row=3, column=0, sticky="w", padx=24, pady=(12, 2))
-
-        self.btn_fields = []
-        for i in range(3):
-            f = EditorField(wrap, "Button %d" % (i + 1), self._begin_record)
-            f.grid(row=4 + i, column=0, sticky="ew", padx=24)
-            self.btn_fields.append(f)
-
-        # Knob section.
-        ctk.CTkLabel(
-            wrap, text="Knob", font=ctk.CTkFont(size=15, weight="bold"),
-        ).grid(row=7, column=0, sticky="w", padx=24, pady=(14, 2))
-
-        self.knob_ccw = EditorField(wrap, "Rotate CCW", self._begin_record)
-        self.knob_ccw.grid(row=8, column=0, sticky="ew", padx=24)
-        self.knob_press = EditorField(wrap, "Press", self._begin_record)
-        self.knob_press.grid(row=9, column=0, sticky="ew", padx=24)
-        self.knob_cw = EditorField(wrap, "Rotate CW", self._begin_record)
-        self.knob_cw.grid(row=10, column=0, sticky="ew", padx=24)
+            self.led_panel, text="LED backlight",
+            font=ctk.CTkFont(size=15, weight="bold"),
+        ).grid(row=0, column=0, columnspan=4, sticky="w", padx=14, pady=(10, 2))
+        ctk.CTkLabel(self.led_panel, text="Mode", text_color=MUTED).grid(
+            row=1, column=0, sticky="w", padx=14, pady=8)
+        self.led_mode_var = ctk.StringVar(value="backlight")
+        ctk.CTkOptionMenu(
+            self.led_panel, variable=self.led_mode_var,
+            values=["off", "backlight", "shock", "shock2", "press"],
+            height=32, fg_color="#1c1d27",
+            button_color=ACCENT, button_hover_color=ACCENT_HOVER,
+        ).grid(row=1, column=1, sticky="ew", padx=(0, 14), pady=8)
+        ctk.CTkLabel(self.led_panel, text="Color", text_color=MUTED).grid(
+            row=1, column=2, sticky="w", padx=14, pady=8)
+        self.led_color_var = ctk.StringVar(value="blue")
+        ctk.CTkOptionMenu(
+            self.led_panel, variable=self.led_color_var,
+            values=["red", "orange", "yellow", "green", "cyan", "blue",
+                    "purple", "white"],
+            height=32, fg_color="#1c1d27",
+            button_color=ACCENT, button_hover_color=ACCENT_HOVER,
+        ).grid(row=1, column=3, sticky="ew", padx=(0, 14), pady=8)
+        ctk.CTkButton(
+            self.led_panel, text="Apply LED", height=34, corner_radius=8,
+            fg_color=ACCENT, hover_color=ACCENT_HOVER,
+            command=self._apply_led,
+        ).grid(row=2, column=0, columnspan=4, sticky="w", padx=14, pady=(0, 12))
+        self.led_panel.grid_remove()
 
         # Action buttons.
         actions = ctk.CTkFrame(wrap, fg_color="transparent")
-        actions.grid(row=11, column=0, sticky="ew", padx=24, pady=(20, 22))
+        actions.grid(row=8, column=0, sticky="ew", padx=24, pady=(20, 22))
         actions.grid_columnconfigure(3, weight=1)
 
         ctk.CTkButton(
@@ -581,18 +863,47 @@ class MacroPadStudio(ctk.CTk):
     # -- statusbar ---------------------------------------------------------
 
     def _build_statusbar(self):
+        bar = ctk.CTkFrame(self, fg_color="#0c0d12", corner_radius=0, height=30)
+        bar.grid(row=1, column=0, columnspan=2, sticky="ew")
+        bar.grid_columnconfigure(0, weight=1)
+
         self.status = ctk.CTkLabel(
-            self, text="Ready.", anchor="w", height=30,
-            fg_color="#0c0d12", text_color=MUTED,
+            bar, text="Ready.", anchor="w", height=30,
+            fg_color="transparent", text_color=MUTED,
             font=ctk.CTkFont(size=12), padx=16,
         )
-        self.status.grid(row=1, column=0, columnspan=2, sticky="ew")
+        self.status.grid(row=0, column=0, sticky="ew")
+
+        self.device_status = ctk.CTkLabel(
+            bar, text="No device", anchor="e", height=30,
+            fg_color="transparent", text_color=MUTED,
+            font=ctk.CTkFont(size=12), padx=16,
+        )
+        self.device_status.grid(row=0, column=1, sticky="e")
 
     def set_status(self, text, kind="info"):
         color = {
             "info": MUTED, "ok": SUCCESS, "error": DANGER,
+            "warn": "#f59e0b",
         }.get(kind, MUTED)
         self.status.configure(text=text, text_color=color)
+
+    def refresh_device_status(self):
+        """Detect a connected device and update the status indicator."""
+        try:
+            prof = devices.detect_connected()
+        except Exception:  # noqa: BLE001
+            prof = None
+        self._detected_profile = prof
+        if prof is None:
+            self.device_status.configure(text="No device", text_color=MUTED)
+        else:
+            pid = prof.get("product_id")
+            pid_text = ("0x%04X" % pid) if isinstance(pid, int) else "—"
+            self.device_status.configure(
+                text="Connected: %s (%s)" % (prof["label"], pid_text),
+                text_color=SUCCESS,
+            )
 
     # -- data --------------------------------------------------------------
 
@@ -741,31 +1052,74 @@ class MacroPadStudio(ctk.CTk):
             ).grid(row=1, column=0, sticky="w", padx=26, pady=(8, 18))
             return
 
-        # Buttons section.
-        ctk.CTkLabel(
-            card, text="BUTTONS", text_color="#5d6473",
-            font=ctk.CTkFont(size=11, weight="bold"),
-        ).grid(row=1, column=0, sticky="w", padx=26, pady=(14, 2))
-        for i in range(3):
-            ActionRow(card, "Button %d" % (i + 1), info["buttons"][i]).grid(
-                row=2 + i, column=0, sticky="ew", padx=26,
-            )
+        rows = info["rows"]
+        cols = info["columns"]
+        nknobs = info["knobs"]
+        nlayers = len(info["layers"]) or 1
 
-        # Knob section.
+        # Geometry summary line.
         ctk.CTkLabel(
-            card, text="KNOB", text_color="#5d6473",
-            font=ctk.CTkFont(size=11, weight="bold"),
-        ).grid(row=5, column=0, sticky="w", padx=26, pady=(16, 2))
-        ActionRow(card, "Rotate CCW", info["ccw"]).grid(
-            row=6, column=0, sticky="ew", padx=26)
-        ActionRow(card, "Press", info["press"]).grid(
-            row=7, column=0, sticky="ew", padx=26)
-        ActionRow(card, "Rotate CW", info["cw"]).grid(
-            row=8, column=0, sticky="ew", padx=26)
+            card,
+            text="%dx%d grid · %d knob%s · %d layer%s"
+                 % (rows, cols, nknobs, "" if nknobs == 1 else "s",
+                    nlayers, "" if nlayers == 1 else "s"),
+            text_color=MUTED, font=ctk.CTkFont(size=12),
+        ).grid(row=1, column=0, sticky="w", padx=26, pady=(2, 6))
+
+        body = ctk.CTkFrame(card, fg_color="transparent")
+        body.grid(row=2, column=0, sticky="ew", padx=26)
+        body.grid_columnconfigure(0, weight=1)
+        next_row = 0
+
+        # Render each layer.
+        for li, layer in enumerate(info["layers"]):
+            if nlayers > 1:
+                ctk.CTkLabel(
+                    body, text="LAYER %d" % (li + 1), text_color=ACCENT,
+                    font=ctk.CTkFont(size=12, weight="bold"),
+                ).grid(row=next_row, column=0, sticky="w", pady=(10, 4))
+                next_row += 1
+
+            grid = layer.get("buttons") or []
+            if rows and cols:
+                ctk.CTkLabel(
+                    body, text="BUTTONS", text_color="#5d6473",
+                    font=ctk.CTkFont(size=11, weight="bold"),
+                ).grid(row=next_row, column=0, sticky="w", pady=(6, 2))
+                next_row += 1
+                for r in range(rows):
+                    for c in range(cols):
+                        val = grid[r][c] if (r < len(grid)
+                                             and c < len(grid[r])) else ""
+                        label = ("Button R%dC%d" % (r + 1, c + 1)
+                                 if cols > 1 else "Button %d" % (r + 1))
+                        ActionRow(body, label, val).grid(
+                            row=next_row, column=0, sticky="ew")
+                        next_row += 1
+
+            knob_list = layer.get("knobs") or []
+            for ki in range(nknobs):
+                knob = knob_list[ki] if ki < len(knob_list) else {}
+                ctk.CTkLabel(
+                    body,
+                    text="KNOB %d" % (ki + 1) if nknobs > 1 else "KNOB",
+                    text_color="#5d6473",
+                    font=ctk.CTkFont(size=11, weight="bold"),
+                ).grid(row=next_row, column=0, sticky="w", pady=(12, 2))
+                next_row += 1
+                ActionRow(body, "Rotate CCW", knob.get("ccw", "")).grid(
+                    row=next_row, column=0, sticky="ew")
+                next_row += 1
+                ActionRow(body, "Press", knob.get("press", "")).grid(
+                    row=next_row, column=0, sticky="ew")
+                next_row += 1
+                ActionRow(body, "Rotate CW", knob.get("cw", "")).grid(
+                    row=next_row, column=0, sticky="ew")
+                next_row += 1
 
         # Apply button.
         apply_bar = ctk.CTkFrame(card, fg_color="transparent")
-        apply_bar.grid(row=9, column=0, sticky="ew", padx=26, pady=(22, 24))
+        apply_bar.grid(row=3, column=0, sticky="ew", padx=26, pady=(22, 24))
         apply_bar.grid_columnconfigure(1, weight=1)
 
         self.apply_btn = ctk.CTkButton(
@@ -786,6 +1140,21 @@ class MacroPadStudio(ctk.CTk):
     def _apply_selected(self):
         if not self.selected:
             return
+        # Non-blocking geometry mismatch warning.
+        self.refresh_device_status()
+        prof = self._detected_profile
+        if prof is not None and prof.get("rows"):
+            info = parse_preset(self.selected["path"])
+            if (info["rows"] != prof["rows"]
+                    or info["columns"] != prof["columns"]
+                    or info["knobs"] != prof["knobs"]):
+                self.set_status(
+                    "⚠ Preset geometry (%dx%d, %d knobs) differs from device "
+                    "%s — applying anyway…"
+                    % (info["rows"], info["columns"], info["knobs"],
+                       prof["label"]),
+                    "warn")
+                self.update_idletasks()
         self.set_status("Requesting admin password and uploading…", "info")
         self.apply_btn.configure(state="disabled", text="Uploading…")
         self.update_idletasks()
@@ -796,17 +1165,198 @@ class MacroPadStudio(ctk.CTk):
         else:
             self.set_status("✗ %s" % msg, "error")
 
+    def _apply_led(self):
+        mode = self.led_mode_var.get()
+        color = self.led_color_var.get()
+        # 'off' takes no color; 'white' is only valid with backlight.
+        use_color = None if mode == "off" else color
+        self.set_status("Setting LED mode…", "info")
+        self.update_idletasks()
+        ok, msg = apply_led(mode, use_color)
+        if ok:
+            self.set_status("✓ LED: %s" % (msg or mode), "ok")
+        else:
+            self.set_status("✗ %s" % msg, "error")
+
     # -- editor ------------------------------------------------------------
+
+    def _set_geometry(self, rows, cols, knobs, layer_count):
+        """Resize the in-memory editor model to a new geometry, keeping data."""
+        self._editor_rows = rows
+        self._editor_cols = cols
+        self._editor_knobs = knobs
+        self._editor_layer_count = layer_count
+        new_layers = []
+        for li in range(layer_count):
+            old = (self._editor_layers[li]
+                   if li < len(self._editor_layers) else {})
+            old_grid = old.get("buttons") or []
+            grid = _blank_grid(rows, cols)
+            for r in range(rows):
+                for c in range(cols):
+                    if r < len(old_grid) and c < len(old_grid[r]):
+                        grid[r][c] = old_grid[r][c]
+            old_knobs = old.get("knobs") or []
+            klist = []
+            for ki in range(knobs):
+                k = old_knobs[ki] if ki < len(old_knobs) else {}
+                klist.append({
+                    "ccw": k.get("ccw", ""),
+                    "press": k.get("press", ""),
+                    "cw": k.get("cw", ""),
+                })
+            new_layers.append({"buttons": grid, "knobs": klist})
+        self._editor_layers = new_layers
+        if self._editor_active_layer >= layer_count:
+            self._editor_active_layer = 0
+
+    def _apply_profile_to_editor(self, profile):
+        """Set the device dropdown + geometry from a profile dict."""
+        self.device_var.set(profile["label"])
+        if profile["id"] == "custom":
+            self.custom_geo.grid()
+            rows = int(self.custom_rows.get())
+            cols = int(self.custom_cols.get())
+            knobs = int(self.custom_knobs.get())
+        else:
+            self.custom_geo.grid_remove()
+            rows = profile["rows"]
+            cols = profile["columns"]
+            knobs = profile["knobs"]
+            self.custom_rows.set(str(rows))
+            self.custom_cols.set(str(cols))
+            self.custom_knobs.set(str(knobs))
+        self._set_geometry(rows, cols, knobs, profile.get("layers", 3))
+        # LED panel visibility.
+        if profile.get("led"):
+            self.led_panel.grid()
+        else:
+            self.led_panel.grid_remove()
+
+    def _on_device_change(self, label):
+        prof = _profile_for_label(label) or devices.DEVICE_PROFILES[0]
+        self._apply_profile_to_editor(prof)
+        self._refresh_layer_tabs()
+        self._rebuild_grid()
+
+    def _refresh_layer_tabs(self):
+        labels = ["Layer %d" % (i + 1)
+                  for i in range(self._editor_layer_count)]
+        self.layer_tabs.configure(values=labels)
+        self.layer_tabs.set(labels[self._editor_active_layer])
+
+    def _on_layer_change(self, label):
+        self._save_current_layer_from_fields()
+        try:
+            idx = int(label.split()[-1]) - 1
+        except (ValueError, IndexError):
+            idx = 0
+        self._editor_active_layer = idx
+        self._rebuild_grid()
+
+    def _rebuild_grid(self):
+        """Rebuild the dynamic button + knob fields for the active layer."""
+        # If the custom geometry changed, resize the model first.
+        if self.custom_geo.winfo_manager():  # custom row visible
+            rows = int(self.custom_rows.get())
+            cols = int(self.custom_cols.get())
+            knobs = int(self.custom_knobs.get())
+            if (rows, cols, knobs) != (self._editor_rows, self._editor_cols,
+                                       self._editor_knobs):
+                self._set_geometry(rows, cols, knobs,
+                                   self._editor_layer_count)
+
+        for child in self.grid_container.winfo_children():
+            child.destroy()
+        self._btn_field_widgets = []
+        self._knob_field_widgets = []
+
+        rows = self._editor_rows
+        cols = self._editor_cols
+        knobs = self._editor_knobs
+        li = self._editor_active_layer
+        layer = (self._editor_layers[li]
+                 if li < len(self._editor_layers) else {})
+        grid = layer.get("buttons") or _blank_grid(rows, cols)
+        klist = layer.get("knobs") or []
+
+        next_row = 0
+        if rows and cols:
+            ctk.CTkLabel(
+                self.grid_container, text="Buttons",
+                font=ctk.CTkFont(size=15, weight="bold"),
+            ).grid(row=next_row, column=0, sticky="w", pady=(8, 2))
+            next_row += 1
+            for r in range(rows):
+                row_widgets = []
+                for c in range(cols):
+                    label = ("R%dC%d" % (r + 1, c + 1)
+                             if cols > 1 else "Button %d" % (r + 1))
+                    f = EditorField(self.grid_container, label,
+                                    self._begin_record)
+                    f.grid(row=next_row, column=0, sticky="ew")
+                    val = grid[r][c] if (r < len(grid)
+                                         and c < len(grid[r])) else ""
+                    f.set(val)
+                    row_widgets.append(f)
+                    next_row += 1
+                self._btn_field_widgets.append(row_widgets)
+
+        for ki in range(knobs):
+            knob = klist[ki] if ki < len(klist) else {}
+            ctk.CTkLabel(
+                self.grid_container,
+                text="Knob %d" % (ki + 1) if knobs > 1 else "Knob",
+                font=ctk.CTkFont(size=15, weight="bold"),
+            ).grid(row=next_row, column=0, sticky="w", pady=(14, 2))
+            next_row += 1
+            ccw = EditorField(self.grid_container, "Rotate CCW",
+                              self._begin_record)
+            ccw.grid(row=next_row, column=0, sticky="ew")
+            ccw.set(knob.get("ccw", ""))
+            next_row += 1
+            press = EditorField(self.grid_container, "Press",
+                                self._begin_record)
+            press.grid(row=next_row, column=0, sticky="ew")
+            press.set(knob.get("press", ""))
+            next_row += 1
+            cw = EditorField(self.grid_container, "Rotate CW",
+                             self._begin_record)
+            cw.grid(row=next_row, column=0, sticky="ew")
+            cw.set(knob.get("cw", ""))
+            next_row += 1
+            self._knob_field_widgets.append(
+                {"ccw": ccw, "press": press, "cw": cw})
+
+    def _save_current_layer_from_fields(self):
+        """Copy the visible fields back into the in-memory layer model."""
+        li = self._editor_active_layer
+        if li >= len(self._editor_layers):
+            return
+        grid = _blank_grid(self._editor_rows, self._editor_cols)
+        for r, row_widgets in enumerate(self._btn_field_widgets):
+            for c, widget in enumerate(row_widgets):
+                if r < len(grid) and c < len(grid[r]):
+                    grid[r][c] = widget.get()
+        klist = []
+        for kw in self._knob_field_widgets:
+            klist.append({
+                "ccw": kw["ccw"].get(),
+                "press": kw["press"].get(),
+                "cw": kw["cw"].get(),
+            })
+        self._editor_layers[li] = {"buttons": grid, "knobs": klist}
 
     def _new_preset(self):
         self._editing_path = None
         self.selected = None
         self.name_var.set("")
-        for f in self.btn_fields:
-            f.set("")
-        self.knob_ccw.set("")
-        self.knob_press.set("")
-        self.knob_cw.set("")
+        self.orientation_var.set("normal")
+        self._editor_active_layer = 0
+        self._editor_layers = []
+        self._apply_profile_to_editor(devices.DEVICE_PROFILES[0])
+        self._refresh_layer_tabs()
+        self._rebuild_grid()
         self.editor_subtitle.configure(
             text="Creating a new preset. Pick tokens or record shortcuts.")
         cats = list_categories() or ["misc"]
@@ -820,18 +1370,50 @@ class MacroPadStudio(ctk.CTk):
         self._editing_path = preset["path"]
         self.name_var.set(preset["name"])
         self.editor_category_var.set(preset["category"])
-        for i, f in enumerate(self.btn_fields):
-            f.set(info["buttons"][i])
-        self.knob_ccw.set(info["ccw"])
-        self.knob_press.set(info["press"])
-        self.knob_cw.set(info["cw"])
+        self.orientation_var.set(info.get("orientation") or "normal")
+
+        rows = info["rows"]
+        cols = info["columns"]
+        knobs = info["knobs"]
+        layer_count = len(info["layers"]) or 1
+
+        # Pick the matching profile, falling back to custom geometry.
+        prof = None
+        for p in devices.DEVICE_PROFILES:
+            if p["id"] == "custom":
+                continue
+            if (p["rows"] == rows and p["columns"] == cols
+                    and p["knobs"] == knobs):
+                prof = p
+                break
+        if prof is None:
+            prof = devices.profile_by_id("custom")
+            self.device_var.set(prof["label"])
+            self.custom_geo.grid()
+            self.custom_rows.set(str(rows))
+            self.custom_cols.set(str(cols))
+            self.custom_knobs.set(str(knobs))
+            if prof.get("led"):
+                self.led_panel.grid()
+            else:
+                self.led_panel.grid_remove()
+        else:
+            self._apply_profile_to_editor(prof)
+
+        # Load the actual layer data into the model.
+        self._editor_active_layer = 0
+        self._set_geometry(rows, cols, knobs, max(layer_count, 1))
+        for li, layer in enumerate(info["layers"]):
+            if li >= len(self._editor_layers):
+                break
+            self._editor_layers[li] = {
+                "buttons": layer.get("buttons") or _blank_grid(rows, cols),
+                "knobs": layer.get("knobs") or [],
+            }
+        self._refresh_layer_tabs()
+        self._rebuild_grid()
         self.editor_subtitle.configure(
             text="Editing “%s”." % preset["name"])
-
-    def _collect_editor(self):
-        buttons = [f.get() for f in self.btn_fields]
-        return buttons, self.knob_ccw.get(), self.knob_press.get(), \
-            self.knob_cw.get()
 
     def _save_preset(self):
         name = self.name_var.get().strip()
@@ -844,8 +1426,14 @@ class MacroPadStudio(ctk.CTk):
         ).strip("-") or "preset"
 
         category = self.editor_category_var.get().strip() or "misc"
-        buttons, ccw, press, cw = self._collect_editor()
-        text = build_yaml(buttons, ccw, press, cw)
+
+        # Persist the visible layer, then build YAML from the whole model.
+        self._save_current_layer_from_fields()
+        text = build_yaml(
+            self._editor_rows, self._editor_cols, self._editor_knobs,
+            self._editor_layers,
+            orientation=self.orientation_var.get() or "normal",
+        )
 
         # Validate before writing anything to the presets tree.
         ok, msg = validate_yaml_text(text)

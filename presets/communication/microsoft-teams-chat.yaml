@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-e", "cmd-shift-k", "cmd-shift-o"]  # search / open channel list / recent files
+    knobs:
+      - ccw: "alt-up"       # navigate to previous conversation
+        press: "enter"      # open selected item
+        cw: "alt-down"      # navigate to next conversation

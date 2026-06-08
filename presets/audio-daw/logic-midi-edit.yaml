@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-a",             # select all MIDI events
+         "delete",            # delete selected MIDI events
+         "cmd-z"]             # undo last MIDI edit
+    knobs:
+      - ccw: "wheeldown"      # scroll MIDI editor down (lower pitches)
+        press: "space"        # play / stop
+        cw: "wheelup"         # scroll MIDI editor up (higher pitches)

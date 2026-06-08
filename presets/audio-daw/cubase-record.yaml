@@ -1,0 +1,14 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["numpad0",          # return to zero / stop
+         "numpadasterisk",   # toggle record
+         "numpadplus"]       # start recording (numeric pad Enter in some setups)
+    knobs:
+      - ccw: "left"          # move playhead backward
+        press: "numpad0"     # return to start / stop
+        cw: "right"          # move playhead forward

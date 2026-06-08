@@ -1,0 +1,12 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+
+layers:
+  - buttons:
+      - ["cmd-shift-s", "cmd-shift-t", "cmd-shift-a"]  # start-stop share / pause-resume share / toggle mute
+    knobs:
+      - ccw: "wheeldown"    # scroll shared content down
+        press: "enter"      # confirm selection
+        cw: "wheelup"       # scroll shared content up

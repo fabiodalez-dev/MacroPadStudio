@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["cmd-shift-alt-e", "alt-click", "cmd-e"]  # Open expression editor (hold Alt+click stopwatch), enable expression field, open text editor
+    knobs:
+      - ccw: "cmd-z"        # Undo expression edit
+        press: "enter"       # Confirm / apply expression
+        cw: "cmd-shift-z"    # Redo expression edit

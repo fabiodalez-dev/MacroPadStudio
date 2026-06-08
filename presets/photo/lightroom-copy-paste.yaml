@@ -1,0 +1,11 @@
+orientation: normal
+rows: 1
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - ["cmd-shift-c", "cmd-shift-v", "cmd-alt-v"]   # Copy develop settings / Paste develop settings / Paste from previous
+    knobs:
+      - ccw: "left"                                     # Previous photo
+        press: "cmd-z"                                  # Undo last paste
+        cw: "right"                                     # Next photo

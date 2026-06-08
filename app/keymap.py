@@ -16,6 +16,16 @@ Public API:
 
     VALID_TOKEN_KEYS, MODIFIER_TOKENS
         The full vocabulary lists, useful for building dropdowns.
+
+    MOUSE_TOKENS, MEDIA_TOKENS
+        Mouse / wheel and media token lists for the extended dropdowns.
+
+    EXTENDED_VOCABULARY
+        A merged, de-duplicated list of every token the dropdowns can offer
+        (keys, media, mouse), excluding bare modifier prefixes.
+
+    is_sequence(text), split_sequence(text)
+        Helpers for working with comma-separated sequences and "<ms>" delays.
 """
 
 # Modifier order used when assembling a token. macOS-friendly ordering:
@@ -53,6 +63,22 @@ VALID_TOKEN_KEYS = (
         "volumeup", "volumedown", "favorites", "calculator", "screenlock",
     ]
 )
+
+# Mouse and wheel actions accepted by the backend. The parametric forms
+# (move/drag/wheel/click variations) are offered as ready-made examples.
+MOUSE_TOKENS = [
+    "click", "click(left)", "click(middle)", "click(right)",
+    "click(left+right)",
+    "wheelup", "wheeldown", "wheel(1)", "wheel(-1)", "wheel(3)", "wheel(-3)",
+    "move(5,0)", "move(0,5)", "move(-5,0)", "move(0,-5)",
+    "drag(left,0,5)", "drag(right,0,5)", "drag(left+right,0,5)",
+]
+
+# Media / consumer-control keys.
+MEDIA_TOKENS = [
+    "next", "prev", "previous", "stop", "play", "mute",
+    "volumeup", "volumedown", "favorites", "calculator", "screenlock",
+]
 
 # Map Tkinter keysym names onto ch57x key tokens for keys whose names differ.
 _KEYSYM_MAP = {
@@ -234,3 +260,50 @@ def event_to_token(event):
     if mods:
         return "-".join(mods + [base])
     return base
+
+
+# ---------------------------------------------------------------------------
+# Sequence / delay helpers
+# ---------------------------------------------------------------------------
+
+def split_sequence(text):
+    """
+    Split a comma-separated sequence into its individual steps, trimming
+    whitespace. "cmd-c, <100>, cmd-v" -> ["cmd-c", "<100>", "cmd-v"].
+    """
+    if not text:
+        return []
+    return [part.strip() for part in str(text).split(",") if part.strip()]
+
+
+def is_sequence(text):
+    """True if the text contains more than one comma-separated step."""
+    return len(split_sequence(text)) > 1
+
+
+def is_delay(token):
+    """True if the token is a delay like '<100>' (milliseconds)."""
+    if not token:
+        return False
+    token = token.strip()
+    return bool(token.startswith("<") and token.endswith(">")
+                and token[1:-1].strip().isdigit())
+
+
+# ---------------------------------------------------------------------------
+# Extended vocabulary for the dropdowns
+# ---------------------------------------------------------------------------
+
+def _build_extended_vocabulary():
+    """Merge keys, media and mouse tokens into one ordered, unique list."""
+    out = []
+    seen = set()
+    for group in (VALID_TOKEN_KEYS, MEDIA_TOKENS, MOUSE_TOKENS):
+        for tok in group:
+            if tok not in seen:
+                seen.add(tok)
+                out.append(tok)
+    return out
+
+
+EXTENDED_VOCABULARY = _build_extended_vocabulary()
